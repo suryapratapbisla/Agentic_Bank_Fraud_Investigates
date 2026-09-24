@@ -1,10 +1,9 @@
 import { normalizeEvidenceBundle } from '../utils/graphBuilder';
 
-const LIVE_DEFAULT =
-  import.meta.env.VITE_TG_LIVE !== 'false' && import.meta.env.VITE_TG_LIVE !== '0';
-
+/** Live TG is opt-in only (set VITE_TG_LIVE=true). Hosted/static builds use bundled JSON. */
 export function isLiveGraphEnabled() {
-  return LIVE_DEFAULT;
+  const v = String(import.meta.env.VITE_TG_LIVE ?? '').trim().toLowerCase();
+  return v === 'true' || v === '1';
 }
 
 export async function fetchEvidenceBundle({
@@ -43,4 +42,11 @@ export async function loadCachedBundle(caseId) {
   if (!loader) return null;
   const mod = await loader();
   return normalizeEvidenceBundle(mod.default ?? mod);
+}
+
+/** Bundle first, then case JSON — no network required. */
+export async function loadOfflineGraphPayload(caseId) {
+  const bundle = await loadCachedBundle(caseId);
+  if (bundle) return { evidenceBundle: bundle, source: 'bundle' };
+  return { evidenceBundle: null, source: 'case' };
 }

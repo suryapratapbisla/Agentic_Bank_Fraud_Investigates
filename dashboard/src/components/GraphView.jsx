@@ -4,7 +4,7 @@ import ForceGraph2D from 'react-force-graph-2d';
 import {
   fetchEvidenceBundle,
   isLiveGraphEnabled,
-  loadCachedBundle,
+  loadOfflineGraphPayload,
 } from '../api/tigergraph';
 import { getCaseById, getCasePackMeta } from '../data';
 import {
@@ -87,17 +87,14 @@ export default function GraphView() {
           });
           src = 'live';
         } catch {
-          /* try cache */
+          /* fall through to offline sources */
         }
       }
 
       if (!evidenceBundle) {
-        try {
-          evidenceBundle = await loadCachedBundle(rec.case_id);
-          if (evidenceBundle) src = 'bundle';
-        } catch {
-          /* fallback */
-        }
+        const offline = await loadOfflineGraphPayload(rec.case_id);
+        evidenceBundle = offline.evidenceBundle;
+        src = offline.source;
       }
 
       if (cancelled) return;
@@ -200,7 +197,7 @@ export default function GraphView() {
         </p>
         {loading && (
           <div className="absolute inset-0 flex items-center justify-center bg-gray-950/80 z-20 text-sm text-gray-400">
-            Loading graph from TigerGraph…
+            Loading investigation graph…
           </div>
         )}
         <ForceGraph2D

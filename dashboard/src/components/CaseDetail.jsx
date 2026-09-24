@@ -64,7 +64,7 @@ export default function CaseDetail() {
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
-                  In TigerGraph
+                  Graph write-back
                 </span>
                 {c.graph_case_id && (
                   <p className="text-xs font-mono text-gray-500">{c.graph_case_id}</p>

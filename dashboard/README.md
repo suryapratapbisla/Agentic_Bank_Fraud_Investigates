@@ -26,26 +26,30 @@ Or use the export script with `--sync-cases`:
 venv\Scripts\python.exe Scripts\export_dashboard_bundles.py --sync-cases
 ```
 
-## Graph view (hybrid TigerGraph)
+## Graph view (works without TigerGraph)
 
-The **Graph** tab loads investigation topology in this order:
+Hosted builds **do not** call TigerGraph. The graph is built from data shipped in the repo:
 
-1. **Live TigerGraph** — `get_evidence_bundle` via Vite proxy (`/api/tg` → `http://127.0.0.1:14240`). Requires Docker TigerGraph running.
-2. **Cached bundle** — JSON under `src/data/bundles/HHG-*.json`
-3. **Case JSON only** — fallback from static case files
+1. **Cached bundle** — `src/data/bundles/HHG-*.json` (full topology from `get_evidence_bundle`)
+2. **Case JSON** — `src/data/HHG-*.json` if a bundle is missing (customer, card, txns, devices, connected cards, prior cases)
 
-Export bundles (with TigerGraph up):
+Optional live mode (local dev only): set `VITE_TG_LIVE=true` and run TigerGraph on `:14240` with the Vite proxy.
+
+Regenerate bundles when you have TigerGraph up:
 
 ```powershell
 venv\Scripts\python.exe Scripts\export_dashboard_bundles.py --sync-cases
 ```
 
-Disable live fetch (bundles/static only):
+## Static hosting (Netlify, Vercel, GitHub Pages)
 
 ```powershell
-# dashboard/.env.local
-VITE_TG_LIVE=false
+cd dashboard
+npm install
+npm run build
 ```
+
+Deploy the `dashboard/dist` folder. `dashboard/.env.production` sets `VITE_TG_LIVE=false` so the graph never waits on a database.
 
 ## Build
 

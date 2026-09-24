@@ -201,20 +201,17 @@ React app for reviewers and demos.
 | `/case/:id` | Sidebar summary; tabs: **Evidence**, **Timeline**, **Next Actions**, **SAR** |
 | `/graph/:id` | Force graph — customer, card, txns, device, connected cards, prior cases |
 
-**Graph data source (in order):**
-
-1. Live TigerGraph (`/api/tg` proxy → `:14240`)
-2. Cached `dashboard/src/data/bundles/HHG-*.json`
-3. Case JSON only
+**Graph (no TigerGraph required when hosted):** uses bundled `dashboard/src/data/bundles/HHG-*.json`, then case JSON. Live DB is opt-in via `VITE_TG_LIVE=true` for local dev only.
 
 ```powershell
 venv\Scripts\python.exe Scripts\export_dashboard_bundles.py --sync-cases
 cd dashboard
 npm install
 npm run dev
+npm run build
 ```
 
-Open **http://localhost:5173**. Set `VITE_TG_LIVE=false` in `dashboard/.env.local` to use bundles/static only.
+Open **http://localhost:5173** for dev, or deploy **`dashboard/dist`** (see `dashboard/README.md`).
 
 ---
 
