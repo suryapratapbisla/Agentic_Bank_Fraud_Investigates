@@ -1,0 +1,49 @@
+// ============================================================
+// EDGES
+// Run after: schema/vertices.gsql
+// Do not change edge names, directions, or endpoints.
+// ============================================================
+
+USE GLOBAL
+
+CREATE DIRECTED EDGE OWNS (
+    FROM Customer, TO Card
+) WITH REVERSE_EDGE="reverse_OWNS"
+
+CREATE DIRECTED EDGE MADE (
+    FROM Card, TO Transaction
+) WITH REVERSE_EDGE="reverse_MADE"
+
+CREATE DIRECTED EDGE FROM_DEVICE (
+    FROM Transaction, TO DeviceProfile
+) WITH REVERSE_EDGE="reverse_FROM_DEVICE"
+
+CREATE DIRECTED EDGE PURCHASER_EMAIL (
+    FROM Transaction, TO EmailDomain
+) WITH REVERSE_EDGE="reverse_PURCHASER_EMAIL"
+
+CREATE DIRECTED EDGE BILLED_IN (
+    FROM Transaction, TO BillingRegion
+) WITH REVERSE_EDGE="reverse_BILLED_IN"
+
+// time-ordered chain of transactions per card - key for spotting
+// rapid-fire "card testing" patterns
+CREATE DIRECTED EDGE NEXT (
+    FROM Transaction, TO Transaction
+) WITH REVERSE_EDGE="reverse_NEXT"
+
+CREATE DIRECTED EDGE INVOLVES (
+    FROM ClosedCase, TO Transaction
+) WITH REVERSE_EDGE="reverse_INVOLVES"
+
+CREATE DIRECTED EDGE ON_CARD (
+    FROM ClosedCase, TO Card
+) WITH REVERSE_EDGE="reverse_ON_CARD"
+
+CREATE DIRECTED EDGE CONNECTED_TO (
+    FROM ClosedCase, TO Card
+) WITH REVERSE_EDGE="reverse_CONNECTED_TO"
+
+CREATE DIRECTED EDGE MEMORY_OF (
+    FROM CaseMemory, TO ClosedCase
+) WITH REVERSE_EDGE="reverse_MEMORY_OF"

@@ -1,0 +1,48 @@
+// ============================================================
+// Entity: Customer only. No other vertex. No edges.
+//
+// Source (verified header / DATA/readme.md):
+//   DATA/filtered_data/transactions_with_identity_filtered.csv
+//   columns used: customer_id, ts
+//
+// Not in the CSV (do not invent):
+//   total_cards, first_seen, last_seen, total_transactions
+//
+// Idempotent:
+//   Primary id upserts. first_seen/last_seen use min/max, so
+//   loading the same file again does not drift.
+//   total_cards and total_transactions are NOT counted here.
+//   A COUNT/add reducer would double on every re-run.
+//   Re-run queries/customer_queries.gsql refresh_customer_stats()
+//   after this job. ignore_if_exists keeps those query results
+//   if you load customers again.
+//
+// Install (creates the job, does not load):
+//   gsql loading/load_customers.gsql
+//
+// Run from graph/ (client uploads the local CSV):
+//   RUN LOADING JOB load_customers USING f_customers="../DATA/filtered_data/transactions_with_identity_filtered.csv"
+//
+// Debug with a small copy of the same header:
+//   RUN LOADING JOB load_customers USING f_customers="../DATA/filtered_data/customers_sample.csv"
+//   SHOW LOADING STATUS ALL
+// ============================================================
+
+USE GRAPH FraudInvestigationGraph
+
+CREATE LOADING JOB load_customers FOR GRAPH FraudInvestigationGraph {
+    DEFINE FILENAME f_customers = "/tmp/agentic_deploy/DATA/filtered_data/transactions_with_identity_filtered.csv";
+
+    LOAD f_customers
+        TO VERTEX Customer VALUES (
+            $"customer_id",
+            0,
+            $"ts",
+            $"ts",
+            0
+        )
+        WHERE $"customer_id" != "" AND $"ts" != ""
+        USING HEADER="true", SEPARATOR=",", QUOTE="double";
+}
+
+// RUN LOADING JOB load_customers USING f_customers="../DATA/filtered_data/transactions_with_identity_filtered.csv"

@@ -1,0 +1,19 @@
+// ============================================================
+// Create the FraudInvestigationGraph schema.
+// Run from the graph/ directory so @includes resolve:
+//
+//   gsql setup.gsql
+//
+// Rebuild (clean slate):
+//   gsql drop_schema.gsql
+//   gsql setup.gsql
+//
+// Order matters: vertices -> edges -> graph.
+// Loading jobs, indexes, NEXT edges, and queries are separate.
+// ============================================================
+
+USE GLOBAL
+
+@schema/vertices.gsql
+@schema/edges.gsql
+@schema/graph.gsql

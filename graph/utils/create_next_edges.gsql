@@ -1,0 +1,40 @@
+// ============================================================
+// Build time-ordered NEXT edges per card.
+// Run after loading jobs. Safe to re-run: existing NEXT edges
+// are deleted first, then rebuilt from MADE + ts order.
+//
+//   gsql utils/create_next_edges.gsql
+//   INSTALL QUERY create_next_edges
+//   RUN QUERY create_next_edges()
+// ============================================================
+
+USE GRAPH FraudInvestigationGraph
+
+CREATE OR REPLACE QUERY create_next_edges() FOR GRAPH FraudInvestigationGraph {
+    ListAccum<VERTEX> @sorted_txns;
+    SumAccum<INT> @@n_deleted;
+    SumAccum<INT> @@n_created;
+
+    all_txns = {Transaction.*};
+    deleted = SELECT s
+              FROM all_txns:s -(NEXT:e)-> Transaction:t
+              POST-ACCUM
+                  DELETE(s)-e-(t);
+                  @@n_deleted += 1;
+
+    cards = {Card.*};
+    cards = SELECT c
+            FROM cards:c -(MADE)-> Transaction:t
+            ACCUM c.@sorted_txns += t
+            POST-ACCUM c.@sorted_txns = c.@sorted_txns.sortBy("ts");
+
+    cards = SELECT c
+            FROM cards:c
+            POST-ACCUM
+                FOREACH idx IN RANGE(0, c.@sorted_txns.size() - 2) DO
+                    INSERT INTO NEXT VALUES (c.@sorted_txns.get(idx), c.@sorted_txns.get(idx + 1));
+                    @@n_created += 1;
+                END;
+
+    PRINT @@n_deleted AS next_edges_deleted, @@n_created AS next_edges_created;
+}

@@ -1,0 +1,83 @@
+{
+  "case_id": "HHG-001",
+  "case": {
+    "status": "closed_fraud",
+    "verdict": "fraud",
+    "fraud_probability": 0.88,
+    "pattern": "out_of_region_use",
+    "pattern_description": "In-person purchase made in a billing region never seen before for this card, matching prior confirmed out-of-region fraud cases for the same customer.",
+    "affected_txn_ids": [
+      "3514030"
+    ],
+    "first_suspicious_txn_id": "3514030",
+    "connected_card_ids": [],
+    "connected_device_profiles": [],
+    "exposure_usd": 77.07,
+    "evidence": [
+      {
+        "claim": "Transaction region 444.0 is inconsistent with cardholder's historical billing regions",
+        "source": "graph",
+        "ref": "graph:transaction_region_mismatch",
+        "entity_ids": [
+          "3514030"
+        ]
+      },
+      {
+        "claim": "Risk model scored transaction at 0.61",
+        "source": "graph",
+        "ref": "graph:risk_score",
+        "entity_ids": [
+          "3514030"
+        ]
+      },
+      {
+        "claim": "Three prior confirmed fraud cases on same card with out_of_region_use pattern",
+        "source": "document",
+        "ref": "document:prior_cases",
+        "entity_ids": [
+          "AGENT-HHG-001",
+          "CC-3587",
+          "CC-2964"
+        ]
+      }
+    ],
+    "similar_prior_cases": [
+      "AGENT-HHG-001",
+      "CC-3587",
+      "CC-2964",
+      "CC-1673"
+    ],
+    "summary": "The $77.07 in-person purchase was made in a billing region (444.0) never seen before for card C12382-K1. The real-time model gave a moderate risk score (0.61) and the card has three prior confirmed out-of-region fraud cases. Combined evidence yields a high fraud probability, leading to a fraud verdict.",
+    "written_to_graph": true,
+    "graph_case_id": "AGENT-HHG-001"
+  },
+  "evidence_requests": [],
+  "next_best_actions": {
+    "initial": [],
+    "final": [
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "Policy requires case creation when fraud probability >=0.30 and pattern identified"
+      },
+      {
+        "action": "BLOCK_CARD",
+        "route": "L1",
+        "reason": "Policy L1 allows blocking when exposure <= $2,500"
+      }
+    ],
+    "what_changed": "Initial assessment led directly to case creation and card block"
+  },
+  "sar": {
+    "file": false,
+    "reason": "Exposure $77.07 below $1,000 and no coordinated/connected card evidence, so SAR not required per policy",
+    "narrative": "",
+    "subjects": [],
+    "total_amount_usd": 0.0,
+    "activity_dates": []
+  },
+  "stop_reason": "Fraud probability >=0.85 supported by multiple independent evidences; investigation concluded",
+  "tool_calls": 7,
+  "tokens": 5990,
+  "latency_s": 10.3
+}

@@ -1,0 +1,79 @@
+{
+  "case_id": "HHG-002",
+  "case": {
+    "status": "closed_fraud",
+    "verdict": "fraud",
+    "fraud_probability": 0.92,
+    "pattern": "card_not_present_fraud",
+    "pattern_description": "Online purchase atypical for cardholder; prior confirmed card-not-present fraud on same card and customer.",
+    "affected_txn_ids": [
+      "3478782"
+    ],
+    "first_suspicious_txn_id": "3478782",
+    "connected_card_ids": [],
+    "connected_device_profiles": [],
+    "exposure_usd": 292.36,
+    "evidence": [
+      {
+        "claim": "Flagged transaction $292.36 online with model risk 0.79, atypical for cardholder\u2019s low-value online history",
+        "source": "graph",
+        "ref": "query:flagged_txn(3478782)",
+        "entity_ids": [
+          "3478782"
+        ]
+      },
+      {
+        "claim": "Prior confirmed fraud case AGENT-HHG-002 on same card with pattern card_not_present_fraud",
+        "source": "graph",
+        "ref": "document:prior_cases",
+        "entity_ids": [
+          "AGENT-HHG-002"
+        ]
+      },
+      {
+        "claim": "Prior confirmed fraud case CC-4160 on same customer with pattern card_not_present_fraud",
+        "source": "graph",
+        "ref": "document:prior_cases",
+        "entity_ids": [
+          "CC-4160"
+        ]
+      }
+    ],
+    "similar_prior_cases": [
+      "AGENT-HHG-002",
+      "CC-4160"
+    ],
+    "summary": "The $292.36 online purchase scored 0.79 on the real-time model and does not match the cardholder\u2019s typical low-value online activity. The same card has two prior confirmed card-not-present fraud cases, and the customer has another confirmed fraud case. Combined evidence yields a high fraud probability (0.92).",
+    "written_to_graph": true,
+    "graph_case_id": "AGENT-HHG-002"
+  },
+  "evidence_requests": [],
+  "next_best_actions": {
+    "initial": [],
+    "final": [
+      {
+        "action": "BLOCK_CARD",
+        "route": "L1",
+        "reason": "R2: prior confirmed fraud cases indicate fraud, block card"
+      },
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "R2: prior confirmed fraud cases justify case creation"
+      }
+    ],
+    "what_changed": "Added BLOCK_CARD and CREATE_CASE based on high fraud probability"
+  },
+  "sar": {
+    "file": false,
+    "reason": "Exposure <$1,000 and no coordinated pattern, so no SAR per policy (R9 not triggered)",
+    "narrative": "",
+    "subjects": [],
+    "total_amount_usd": 0.0,
+    "activity_dates": []
+  },
+  "stop_reason": "Fraud probability >=0.85 with multiple evidences",
+  "tool_calls": 7,
+  "tokens": 6062,
+  "latency_s": 20.26
+}

@@ -1,0 +1,32 @@
+// ============================================================
+// Drop the investigation graph and all of its types.
+// Run from the graph/ directory:
+//   gsql drop_schema.gsql
+// Then rebuild with:
+//   gsql setup.gsql
+//
+// First install: skip this file if the graph does not exist yet
+// (DROP will error and stop the GSQL client).
+// ============================================================
+
+USE GLOBAL
+
+DROP GRAPH FraudInvestigationGraph CASCADE
+DROP EDGE MEMORY_OF
+DROP EDGE CONNECTED_TO
+DROP EDGE ON_CARD
+DROP EDGE INVOLVES
+DROP EDGE NEXT
+DROP EDGE BILLED_IN
+DROP EDGE PURCHASER_EMAIL
+DROP EDGE FROM_DEVICE
+DROP EDGE MADE
+DROP EDGE OWNS
+DROP VERTEX ClosedCase
+DROP VERTEX CaseMemory
+DROP VERTEX BillingRegion
+DROP VERTEX EmailDomain
+DROP VERTEX DeviceProfile
+DROP VERTEX Transaction
+DROP VERTEX Card
+DROP VERTEX Customer

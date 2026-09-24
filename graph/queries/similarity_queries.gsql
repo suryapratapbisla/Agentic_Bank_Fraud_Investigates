@@ -1,0 +1,60 @@
+// ============================================================
+// Retrieve similar closed cases for GraphRAG-style memory.
+// ============================================================
+
+USE GRAPH FraudInvestigationGraph
+
+CREATE OR REPLACE QUERY similar_closed_cases_by_pattern(
+    STRING pattern,
+    INT k=10
+) FOR GRAPH FraudInvestigationGraph {
+    cases = SELECT c
+            FROM ClosedCase:c
+            WHERE c.pattern == pattern
+            ORDER BY c.closed_at DESC
+            LIMIT k;
+    PRINT cases;
+}
+
+CREATE OR REPLACE QUERY similar_closed_cases_by_outcome(
+    STRING outcome,
+    INT k=10
+) FOR GRAPH FraudInvestigationGraph {
+    cases = SELECT c
+            FROM ClosedCase:c
+            WHERE c.outcome == outcome
+            ORDER BY c.closed_at DESC
+            LIMIT k;
+    PRINT cases;
+}
+
+CREATE OR REPLACE QUERY similar_cases_by_device(STRING transaction_id) FOR GRAPH FraudInvestigationGraph {
+    Vertex txn;
+    txn = to_vertex(transaction_id, "Transaction");
+    start = {txn};
+
+    devices = SELECT d FROM start:t -(FROM_DEVICE)-> DeviceProfile:d;
+    related_txns = SELECT tx FROM devices:d -(reverse_FROM_DEVICE)-> Transaction:tx;
+    cases = SELECT c FROM related_txns:tx -(reverse_INVOLVES)-> ClosedCase:c;
+
+    PRINT devices, cases;
+}
+
+CREATE OR REPLACE QUERY similar_cases_by_card(STRING card_id) FOR GRAPH FraudInvestigationGraph {
+    Vertex card;
+    card = to_vertex(card_id, "Card");
+    cards = {card};
+    cases = SELECT c FROM cards:k -(reverse_ON_CARD)-> ClosedCase:c;
+    connected = SELECT c FROM cards:k -(reverse_CONNECTED_TO)-> ClosedCase:c;
+    PRINT cases, connected;
+}
+
+CREATE OR REPLACE QUERY get_closed_case(STRING case_id) FOR GRAPH FraudInvestigationGraph {
+    Vertex cse;
+    cse = to_vertex(case_id, "ClosedCase");
+    cases = {cse};
+    txns = SELECT t FROM cases:c -(INVOLVES)-> Transaction:t;
+    cards = SELECT k FROM cases:c -(ON_CARD)-> Card:k;
+    connected = SELECT k FROM cases:c -(CONNECTED_TO)-> Card:k;
+    PRINT cases, txns, cards, connected;
+}

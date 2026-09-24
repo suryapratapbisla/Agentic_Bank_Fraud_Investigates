@@ -1,0 +1,1082 @@
+{
+  "flagged_txn": {
+    "v_id": "3581141",
+    "v_type": "Transaction",
+    "attributes": {
+      "transaction_dt": 15509453,
+      "ts": "2016-12-28 12:10:53",
+      "amount": 30.02,
+      "product_cd": "S",
+      "addr1": "203.0",
+      "addr2": "87.0",
+      "dist1": 0,
+      "dist2": 0,
+      "p_email_domain": "",
+      "r_email_domain": "gmail.com",
+      "channel": "online",
+      "risk_score": 0.28,
+      "raw_features_json": ""
+    }
+  },
+  "owner_cards": [
+    {
+      "v_id": "DRV::C08299::13026::216.0::150.0::visa::226.0::credit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C07297",
+        "card_network": "visa",
+        "card_type": "credit",
+        "issuer": "226.0"
+      }
+    }
+  ],
+  "card_transactions": [
+    {
+      "v_id": "3381003",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 9525190,
+        "ts": "2016-10-20 05:53:10",
+        "amount": 25.08,
+        "product_cd": "S",
+        "addr1": "330.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "gmail.com",
+        "channel": "online",
+        "risk_score": 0.12,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3381749",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 9563635,
+        "ts": "2016-10-20 16:33:55",
+        "amount": 29.96,
+        "product_cd": "S",
+        "addr1": "330.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "gmail.com",
+        "channel": "online",
+        "risk_score": 0.02,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3389674",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 9772482,
+        "ts": "2016-10-23 02:34:42",
+        "amount": 19.98,
+        "product_cd": "S",
+        "addr1": "330.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "anonymous.com",
+        "channel": "online",
+        "risk_score": 0.81,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3390612",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 9821824,
+        "ts": "2016-10-23 16:17:04",
+        "amount": 50.09,
+        "product_cd": "S",
+        "addr1": "204.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "gmail.com",
+        "channel": "online",
+        "risk_score": 0.09,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3438059",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 11112050,
+        "ts": "2016-11-07 14:40:50",
+        "amount": 99.92,
+        "product_cd": "S",
+        "addr1": "337.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "yahoo.com",
+        "channel": "online",
+        "risk_score": 0.09,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3483187",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 12569866,
+        "ts": "2016-11-24 11:37:46",
+        "amount": 24.91,
+        "product_cd": "S",
+        "addr1": "330.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "yahoo.com",
+        "channel": "online",
+        "risk_score": 0.2,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3483198",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 12570648,
+        "ts": "2016-11-24 11:50:48",
+        "amount": 25.03,
+        "product_cd": "S",
+        "addr1": "330.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "yahoo.com",
+        "channel": "online",
+        "risk_score": 0.2,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3497063",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 13010623,
+        "ts": "2016-11-29 14:03:43",
+        "amount": 49.93,
+        "product_cd": "S",
+        "addr1": "204.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "gmail.com",
+        "channel": "online",
+        "risk_score": 0.62,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3507659",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 13289229,
+        "ts": "2016-12-02 19:27:09",
+        "amount": 50.07,
+        "product_cd": "S",
+        "addr1": "330.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "gmail.com",
+        "channel": "online",
+        "risk_score": 0.71,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3507660",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 13289250,
+        "ts": "2016-12-02 19:27:30",
+        "amount": 39.91,
+        "product_cd": "S",
+        "addr1": "330.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "gmail.com",
+        "channel": "online",
+        "risk_score": 0.43,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3507672",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 13289435,
+        "ts": "2016-12-02 19:30:35",
+        "amount": 49.92,
+        "product_cd": "S",
+        "addr1": "330.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "gmail.com",
+        "channel": "online",
+        "risk_score": 0.26,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3539034",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 14223233,
+        "ts": "2016-12-13 14:53:53",
+        "amount": 99.98,
+        "product_cd": "S",
+        "addr1": "330.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "yahoo.com",
+        "channel": "online",
+        "risk_score": 0.33,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3545489",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 14400431,
+        "ts": "2016-12-15 16:07:11",
+        "amount": 29.97,
+        "product_cd": "S",
+        "addr1": "330.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 29,
+        "p_email_domain": "",
+        "r_email_domain": "gmail.com",
+        "channel": "online",
+        "risk_score": 0.23,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3576079",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 15336152,
+        "ts": "2016-12-26 12:02:32",
+        "amount": 80.02,
+        "product_cd": "S",
+        "addr1": "330.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "anonymous.com",
+        "channel": "online",
+        "risk_score": 0.01,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3581141",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 15509453,
+        "ts": "2016-12-28 12:10:53",
+        "amount": 30.02,
+        "product_cd": "S",
+        "addr1": "203.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "gmail.com",
+        "channel": "online",
+        "risk_score": 0.28,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3586980",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 15704501,
+        "ts": "2016-12-30 18:21:41",
+        "amount": 20.01,
+        "product_cd": "S",
+        "addr1": "330.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "gmail.com",
+        "channel": "online",
+        "risk_score": 0.85,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3587042",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 15705714,
+        "ts": "2016-12-30 18:41:54",
+        "amount": 20.02,
+        "product_cd": "S",
+        "addr1": "330.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "gmail.com",
+        "channel": "online",
+        "risk_score": 0.35,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3587043",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 15705717,
+        "ts": "2016-12-30 18:41:57",
+        "amount": 20.08,
+        "product_cd": "S",
+        "addr1": "330.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "gmail.com",
+        "channel": "online",
+        "risk_score": 0.7,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3588859",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 15773349,
+        "ts": "2016-12-31 13:29:09",
+        "amount": 49.97,
+        "product_cd": "S",
+        "addr1": "204.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "gmail.com",
+        "channel": "online",
+        "risk_score": 0.69,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3588874",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 15773752,
+        "ts": "2016-12-31 13:35:52",
+        "amount": 49.96,
+        "product_cd": "S",
+        "addr1": "204.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "gmail.com",
+        "channel": "online",
+        "risk_score": 0.14,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3588876",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 15773792,
+        "ts": "2016-12-31 13:36:32",
+        "amount": 50.08,
+        "product_cd": "S",
+        "addr1": "204.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "gmail.com",
+        "channel": "online",
+        "risk_score": 0.01,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3588905",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 15774407,
+        "ts": "2016-12-31 13:46:47",
+        "amount": 49.92,
+        "product_cd": "S",
+        "addr1": "204.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "gmail.com",
+        "channel": "online",
+        "risk_score": 0.03,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3588919",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 15774779,
+        "ts": "2016-12-31 13:52:59",
+        "amount": 50.09,
+        "product_cd": "S",
+        "addr1": "204.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "gmail.com",
+        "channel": "online",
+        "risk_score": 0.05,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3588950",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 15775318,
+        "ts": "2016-12-31 14:01:58",
+        "amount": 50.09,
+        "product_cd": "S",
+        "addr1": "204.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "gmail.com",
+        "channel": "online",
+        "risk_score": 0.03,
+        "raw_features_json": ""
+      }
+    }
+  ],
+  "device": {
+    "v_id": "desktop||",
+    "v_type": "DeviceProfile",
+    "attributes": {
+      "device_type": "desktop",
+      "device_info": "",
+      "os": "",
+      "browser": "chrome 66.0",
+      "screen_resolution": "2048x1536",
+      "proxy_type": "IP_PROXY:ANONYMOUS",
+      "device_status": ""
+    }
+  },
+  "device_neighbors": [
+    {
+      "v_id": "DRV::C09933::15868::490.0::150.0::visa::226.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C07297",
+        "card_network": "visa",
+        "card_type": "debit",
+        "issuer": "226.0"
+      }
+    },
+    {
+      "v_id": "DRV::C11923::21363::545.0::185.0::visa::138.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C07297",
+        "card_network": "visa",
+        "card_type": "debit",
+        "issuer": "138.0"
+      }
+    },
+    {
+      "v_id": "DRV::C02354::19248::490.0::150.0::visa::226.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C07297",
+        "card_network": "visa",
+        "card_type": "debit",
+        "issuer": "226.0"
+      }
+    },
+    {
+      "v_id": "DRV::C05876::12947::428.0::150.0::visa::166.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C07297",
+        "card_network": "visa",
+        "card_type": "debit",
+        "issuer": "166.0"
+      }
+    },
+    {
+      "v_id": "DRV::C11891::18586::177.0::185.0::mastercard::195.0::credit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C09988",
+        "card_network": "mastercard",
+        "card_type": "credit",
+        "issuer": "195.0"
+      }
+    },
+    {
+      "v_id": "DRV::C11923::21363::::::::::",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C09988",
+        "card_network": "",
+        "card_type": "",
+        "issuer": ""
+      }
+    },
+    {
+      "v_id": "DRV::C08299::13026::216.0::150.0::visa::226.0::credit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C07297",
+        "card_network": "visa",
+        "card_type": "credit",
+        "issuer": "226.0"
+      }
+    },
+    {
+      "v_id": "DRV::C03042::15158::562.0::150.0::mastercard::219.0::credit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C07297",
+        "card_network": "mastercard",
+        "card_type": "credit",
+        "issuer": "219.0"
+      }
+    },
+    {
+      "v_id": "DRV::C13171::10114::545.0::185.0::visa::102.0::credit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C09988",
+        "card_network": "visa",
+        "card_type": "credit",
+        "issuer": "102.0"
+      }
+    },
+    {
+      "v_id": "DRV::C09988::11242::228.0::106.0::visa::226.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C07671",
+        "card_network": "visa",
+        "card_type": "debit",
+        "issuer": "226.0"
+      }
+    },
+    {
+      "v_id": "DRV::C08106::21429::545.0::185.0::visa::138.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C09988",
+        "card_network": "visa",
+        "card_type": "debit",
+        "issuer": "138.0"
+      }
+    }
+  ],
+  "fraud_cases_on_device": [
+    {
+      "v_id": "AGENT-HHG-009",
+      "v_type": "ClosedCase",
+      "attributes": {
+        "customer_id": "C08299",
+        "card_id": "C08299-K1",
+        "opened_at": "2016-12-28 17:10:53",
+        "closed_at": "2026-09-24 16:18:45",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_fraud",
+        "first_fraud_txn_id": "3581141",
+        "n_txns": 1,
+        "exposure_usd": 30.02,
+        "actions_taken": "BLOCK_CARD|CREATE_CASE|FILE_REPORT|MONITOR_CONNECTED_CARDS",
+        "report_filed": "True",
+        "analyst_notes": "The customer denied a $30.02 online purchase made from a proxy desktop device. The card has a history of online transactions in region 330.0, while this transaction originated from region 203.0. Prior confirmed fraud cases (AGENT-HHG-009, AGENT-HHG-008, AGENT-HHG-004) involved the same card and device, indicating a card\u2011not\u2011present fraud pattern. Multiple other cards share the same device, reinforcing shared\u2011device fraud risk. Based on multiple independent evidences, the fraud probability is high."
+      }
+    },
+    {
+      "v_id": "AGENT-HHG-008",
+      "v_type": "ClosedCase",
+      "attributes": {
+        "customer_id": "C13171",
+        "card_id": "C13171-K2",
+        "opened_at": "2016-12-20 03:08:56",
+        "closed_at": "2026-09-24 16:18:06",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_fraud",
+        "first_fraud_txn_id": "3558054",
+        "n_txns": 1,
+        "exposure_usd": 55.68,
+        "actions_taken": "BLOCK_CARD|FILE_REPORT|MONITOR_CONNECTED_CARDS|CREATE_CASE",
+        "report_filed": "True",
+        "analyst_notes": "The cardholder C13171 reported an unauthorized $55.68 online purchase made from a proxy desktop device. The same card and device have been involved in multiple prior confirmed card\u2011not\u2011present fraud cases (AGENT-HHG-008, CC-5010, CC-4485, CC-0056). Combined with the customer denial and the proxy device, the fraud probability is high (0.92). The case is closed as fraud with the card blocked and a SAR filed."
+      }
+    },
+    {
+      "v_id": "AGENT-HHG-004",
+      "v_type": "ClosedCase",
+      "attributes": {
+        "customer_id": "C08106",
+        "card_id": "C08106-K1",
+        "opened_at": "2016-12-29 07:53:54",
+        "closed_at": "2026-09-24 16:14:45",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_fraud",
+        "first_fraud_txn_id": "3583227",
+        "n_txns": 1,
+        "exposure_usd": 128.33,
+        "actions_taken": "BLOCK_CARD|CREATE_CASE|FILE_REPORT|MONITOR_CONNECTED_CARDS",
+        "report_filed": "True",
+        "analyst_notes": "The cardholder C08106 denied making the $128.33 online purchase on 2016\u201112\u201129. The transaction was made from a proxy desktop device and does not fit the customer's normal spending pattern. The customer has multiple prior confirmed card\u2011not\u2011present fraud cases on the same account and device. Combined with the shared device usage, the evidence strongly indicates fraud. The card is therefore blocked, a case is created, and a SAR is filed."
+      }
+    },
+    {
+      "v_id": "CC-5010",
+      "v_type": "ClosedCase",
+      "attributes": {
+        "customer_id": "C13171",
+        "card_id": "C13171-K2",
+        "opened_at": "2016-10-19 03:56:05",
+        "closed_at": "2016-10-23 05:56:05",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_new_device",
+        "first_fraud_txn_id": "3355424.0",
+        "n_txns": 17,
+        "exposure_usd": 629.26,
+        "actions_taken": "CREATE_CASE|BLOCK_CARD",
+        "report_filed": "No",
+        "analyst_notes": "Case CC-5010: cardholder C13171 reported unrecognized activity on card C13171-K2. 17 transaction(s) between 2016-10-11 and 2016-10-18 totaling $629.26 were confirmed fraudulent. Online purchases from a device not previously seen on this account, inconsistent with the cardholder's history. Online transactions came from a SM-A300H Build/LRX22G on chrome generic. Card blocked and reissued. Customer reimbursed."
+      }
+    },
+    {
+      "v_id": "CC-4501",
+      "v_type": "ClosedCase",
+      "attributes": {
+        "customer_id": "C11923",
+        "card_id": "C11923-K2",
+        "opened_at": "2016-10-07 12:05:47",
+        "closed_at": "2016-10-11 15:05:47",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_testing",
+        "first_fraud_txn_id": "3302336.0",
+        "n_txns": 28,
+        "exposure_usd": 1508.58,
+        "actions_taken": "CREATE_CASE|BLOCK_CARD|FILE_REPORT",
+        "report_filed": "Yes",
+        "analyst_notes": "Case CC-4501: cardholder C11923 reported unrecognized activity on card C11923-K2. 28 transaction(s) between 2016-09-26 and 2016-10-06 totaling $1,508.58 were confirmed fraudulent. A run of very small online authorizations followed by a larger purchase, consistent with testing a stolen card number before use. Card blocked and reissued. Customer reimbursed."
+      }
+    },
+    {
+      "v_id": "CC-4163",
+      "v_type": "ClosedCase",
+      "attributes": {
+        "customer_id": "C13171",
+        "card_id": "C13171-K2",
+        "opened_at": "2016-09-30 09:42:15",
+        "closed_at": "2016-10-05 21:42:15",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_new_device",
+        "first_fraud_txn_id": "3302372.0",
+        "n_txns": 7,
+        "exposure_usd": 582.46,
+        "actions_taken": "CREATE_CASE|BLOCK_CARD",
+        "report_filed": "No",
+        "analyst_notes": "Case CC-4163: cardholder C13171 reported unrecognized activity on card C13171-K2. 7 transaction(s) between 2016-09-26 and 2016-09-29 totaling $582.46 were confirmed fraudulent. Online purchases from a device not previously seen on this account, inconsistent with the cardholder's history. Online transactions came from a Windows on chrome 63.0. Card blocked and reissued. Customer reimbursed."
+      }
+    },
+    {
+      "v_id": "CC-3928",
+      "v_type": "ClosedCase",
+      "attributes": {
+        "customer_id": "C13171",
+        "card_id": "C13171-K2",
+        "opened_at": "2016-09-25 06:58:46",
+        "closed_at": "2016-09-30 07:58:46",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_new_device",
+        "first_fraud_txn_id": "3288848.0",
+        "n_txns": 4,
+        "exposure_usd": 165.82,
+        "actions_taken": "CREATE_CASE|BLOCK_CARD",
+        "report_filed": "No",
+        "analyst_notes": "Case CC-3928: cardholder C13171 reported unrecognized activity on card C13171-K2. 4 transaction(s) between 2016-09-22 and 2016-09-24 totaling $165.82 were confirmed fraudulent. Online purchases from a device not previously seen on this account, inconsistent with the cardholder's history. Card blocked and reissued. Customer reimbursed."
+      }
+    },
+    {
+      "v_id": "CC-3905",
+      "v_type": "ClosedCase",
+      "attributes": {
+        "customer_id": "C11923",
+        "card_id": "C11923-K2",
+        "opened_at": "2016-09-24 21:43:58",
+        "closed_at": "2016-09-27 19:43:58",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_new_device",
+        "first_fraud_txn_id": "3257020.0",
+        "n_txns": 44,
+        "exposure_usd": 1397.53,
+        "actions_taken": "CREATE_CASE|BLOCK_CARD|FILE_REPORT",
+        "report_filed": "Yes",
+        "analyst_notes": "Case CC-3905: cardholder C11923 reported unrecognized activity on card C11923-K2. 44 transaction(s) between 2016-09-11 and 2016-09-23 totaling $1,397.53 were confirmed fraudulent. Online purchases from a device not previously seen on this account, inconsistent with the cardholder's history. Online transactions came from a SAMSUNG SM-G532M Build/MMB29T on Samsung/SM-G532M. Card blocked and reissued. Customer reimbursed."
+      }
+    },
+    {
+      "v_id": "CC-3206",
+      "v_type": "ClosedCase",
+      "attributes": {
+        "customer_id": "C11923",
+        "card_id": "C11923-K2",
+        "opened_at": "2016-09-08 09:12:22",
+        "closed_at": "2016-09-13 02:12:22",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_new_device",
+        "first_fraud_txn_id": "3243592.0",
+        "n_txns": 3,
+        "exposure_usd": 100.24,
+        "actions_taken": "CREATE_CASE|BLOCK_CARD",
+        "report_filed": "No",
+        "analyst_notes": "Case CC-3206: cardholder C11923 reported unrecognized activity on card C11923-K2. 3 transaction(s) between 2016-09-06 and 2016-09-08 totaling $100.24 were confirmed fraudulent. Online purchases from a device not previously seen on this account, inconsistent with the cardholder's history. Online transactions came from a Windows on chrome 64.0. Card blocked and reissued. Customer reimbursed."
+      }
+    },
+    {
+      "v_id": "CC-3079",
+      "v_type": "ClosedCase",
+      "attributes": {
+        "customer_id": "C13171",
+        "card_id": "C13171-K2",
+        "opened_at": "2016-09-05 09:25:32",
+        "closed_at": "2016-09-10 19:25:32",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_new_device",
+        "first_fraud_txn_id": "3224407.0",
+        "n_txns": 14,
+        "exposure_usd": 847.02,
+        "actions_taken": "CREATE_CASE|BLOCK_CARD",
+        "report_filed": "No",
+        "analyst_notes": "Case CC-3079: cardholder C13171 reported unrecognized activity on card C13171-K2. 14 transaction(s) between 2016-09-01 and 2016-09-04 totaling $847.02 were confirmed fraudulent. Online purchases from a device not previously seen on this account, inconsistent with the cardholder's history. Card blocked and reissued. Customer reimbursed."
+      }
+    },
+    {
+      "v_id": "CC-3039",
+      "v_type": "ClosedCase",
+      "attributes": {
+        "customer_id": "C11923",
+        "card_id": "C11923-K2",
+        "opened_at": "2016-09-04 17:18:26",
+        "closed_at": "2016-09-09 01:18:26",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_new_device",
+        "first_fraud_txn_id": "3227364.0",
+        "n_txns": 8,
+        "exposure_usd": 108.85,
+        "actions_taken": "CREATE_CASE|BLOCK_CARD",
+        "report_filed": "No",
+        "analyst_notes": "Case CC-3039: cardholder C11923 reported unrecognized activity on card C11923-K2. 8 transaction(s) between 2016-09-02 and 2016-09-04 totaling $108.85 were confirmed fraudulent. Online purchases from a device not previously seen on this account, inconsistent with the cardholder's history. Card blocked and reissued. Customer reimbursed."
+      }
+    },
+    {
+      "v_id": "CC-2716",
+      "v_type": "ClosedCase",
+      "attributes": {
+        "customer_id": "C13171",
+        "card_id": "C13171-K2",
+        "opened_at": "2016-08-28 15:53:02",
+        "closed_at": "2016-09-03 02:53:02",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_new_device",
+        "first_fraud_txn_id": "3203970.0",
+        "n_txns": 6,
+        "exposure_usd": 253.69,
+        "actions_taken": "CREATE_CASE|BLOCK_CARD",
+        "report_filed": "No",
+        "analyst_notes": "Case CC-2716: cardholder C13171 reported unrecognized activity on card C13171-K2. 6 transaction(s) between 2016-08-24 and 2016-08-28 totaling $253.69 were confirmed fraudulent. Online purchases from a device not previously seen on this account, inconsistent with the cardholder's history. Card blocked and reissued. Customer reimbursed."
+      }
+    },
+    {
+      "v_id": "CC-2673",
+      "v_type": "ClosedCase",
+      "attributes": {
+        "customer_id": "C11923",
+        "card_id": "C11923-K2",
+        "opened_at": "2016-08-27 18:54:07",
+        "closed_at": "2016-09-02 06:54:07",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_testing",
+        "first_fraud_txn_id": "3186138.0",
+        "n_txns": 33,
+        "exposure_usd": 1334.96,
+        "actions_taken": "CREATE_CASE|BLOCK_CARD|FILE_REPORT",
+        "report_filed": "Yes",
+        "analyst_notes": "Case CC-2673: cardholder C11923 reported unrecognized activity on card C11923-K2. 33 transaction(s) between 2016-08-18 and 2016-08-27 totaling $1,334.96 were confirmed fraudulent. A run of very small online authorizations followed by a larger purchase, consistent with testing a stolen card number before use. Card blocked and reissued. Customer reimbursed."
+      }
+    },
+    {
+      "v_id": "CC-2247",
+      "v_type": "ClosedCase",
+      "attributes": {
+        "customer_id": "C11923",
+        "card_id": "C11923-K2",
+        "opened_at": "2016-08-17 14:07:24",
+        "closed_at": "2016-08-21 19:07:24",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_testing",
+        "first_fraud_txn_id": "3103128.0",
+        "n_txns": 71,
+        "exposure_usd": 4886.18,
+        "actions_taken": "CREATE_CASE|BLOCK_CARD|FILE_REPORT",
+        "report_filed": "Yes",
+        "analyst_notes": "Case CC-2247: cardholder C11923 reported unrecognized activity on card C11923-K2. 71 transaction(s) between 2016-07-25 and 2016-08-16 totaling $4,886.18 were confirmed fraudulent. A run of very small online authorizations followed by a larger purchase, consistent with testing a stolen card number before use. Online transactions came from a Windows on chrome 63.0. Card blocked and reissued. Customer reimbursed."
+      }
+    },
+    {
+      "v_id": "CC-2121",
+      "v_type": "ClosedCase",
+      "attributes": {
+        "customer_id": "C08106",
+        "card_id": "C08106-K1",
+        "opened_at": "2016-08-14 20:40:42",
+        "closed_at": "2016-08-16 01:40:42",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_fraud",
+        "first_fraud_txn_id": "3172456.0",
+        "n_txns": 1,
+        "exposure_usd": 102.68,
+        "actions_taken": "CREATE_CASE|BLOCK_CARD",
+        "report_filed": "No",
+        "analyst_notes": "Case CC-2121: cardholder C08106 reported unrecognized activity on card C08106-K1. 1 transaction(s) between 2016-08-14 and 2016-08-14 totaling $102.68 were confirmed fraudulent. Online purchases inconsistent with the cardholder's usual merchants and amounts. Card blocked and reissued. Customer reimbursed."
+      }
+    },
+    {
+      "v_id": "CC-1715",
+      "v_type": "ClosedCase",
+      "attributes": {
+        "customer_id": "C13171",
+        "card_id": "C13171-K2",
+        "opened_at": "2016-08-05 10:56:44",
+        "closed_at": "2016-08-11 03:56:44",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_new_device",
+        "first_fraud_txn_id": "3119886.0",
+        "n_txns": 8,
+        "exposure_usd": 553.72,
+        "actions_taken": "CREATE_CASE|BLOCK_CARD",
+        "report_filed": "No",
+        "analyst_notes": "Case CC-1715: cardholder C13171 reported unrecognized activity on card C13171-K2. 8 transaction(s) between 2016-07-29 and 2016-08-05 totaling $553.72 were confirmed fraudulent. Online purchases from a device not previously seen on this account, inconsistent with the cardholder's history. Online transactions came from a SM-A300H Build/LRX22G on chrome 63.0 for android. Card blocked and reissued. Customer reimbursed."
+      }
+    },
+    {
+      "v_id": "CC-1056",
+      "v_type": "ClosedCase",
+      "attributes": {
+        "customer_id": "C11923",
+        "card_id": "C11923-K2",
+        "opened_at": "2016-07-24 02:41:55",
+        "closed_at": "2016-07-25 23:41:55",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_new_device",
+        "first_fraud_txn_id": "3031806.0",
+        "n_txns": 28,
+        "exposure_usd": 1557.95,
+        "actions_taken": "CREATE_CASE|BLOCK_CARD|FILE_REPORT",
+        "report_filed": "Yes",
+        "analyst_notes": "Case CC-1056: cardholder C11923 reported unrecognized activity on card C11923-K2. 28 transaction(s) between 2016-07-11 and 2016-07-22 totaling $1,557.95 were confirmed fraudulent. Online purchases from a device not previously seen on this account, inconsistent with the cardholder's history. Card blocked and reissued. Customer reimbursed."
+      }
+    },
+    {
+      "v_id": "CC-0467",
+      "v_type": "ClosedCase",
+      "attributes": {
+        "customer_id": "C13171",
+        "card_id": "C13171-K2",
+        "opened_at": "2016-07-13 20:52:43",
+        "closed_at": "2016-07-14 15:52:43",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_new_device",
+        "first_fraud_txn_id": "3012791.0",
+        "n_txns": 8,
+        "exposure_usd": 649.77,
+        "actions_taken": "CREATE_CASE|BLOCK_CARD",
+        "report_filed": "No",
+        "analyst_notes": "Case CC-0467: cardholder C13171 reported unrecognized activity on card C13171-K2. 8 transaction(s) between 2016-07-06 and 2016-07-12 totaling $649.77 were confirmed fraudulent. Online purchases from a device not previously seen on this account, inconsistent with the cardholder's history. Online transactions came from a ZEIA8 on chrome 62.0 for android. Card blocked and reissued. Customer reimbursed."
+      }
+    },
+    {
+      "v_id": "CC-0290",
+      "v_type": "ClosedCase",
+      "attributes": {
+        "customer_id": "C11923",
+        "card_id": "C11923-K2",
+        "opened_at": "2016-07-09 19:59:09",
+        "closed_at": "2016-07-10 23:59:09",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_testing",
+        "first_fraud_txn_id": "3009374.0",
+        "n_txns": 8,
+        "exposure_usd": 144.56,
+        "actions_taken": "CREATE_CASE|BLOCK_CARD",
+        "report_filed": "No",
+        "analyst_notes": "Case CC-0290: cardholder C11923 reported unrecognized activity on card C11923-K2. 8 transaction(s) between 2016-07-05 and 2016-07-08 totaling $144.56 were confirmed fraudulent. A run of very small online authorizations followed by a larger purchase, consistent with testing a stolen card number before use. Card blocked and reissued. Customer reimbursed."
+      }
+    },
+    {
+      "v_id": "CC-0056",
+      "v_type": "ClosedCase",
+      "attributes": {
+        "customer_id": "C13171",
+        "card_id": "C13171-K2",
+        "opened_at": "2016-07-04 18:17:38",
+        "closed_at": "2016-07-06 15:17:38",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_new_device",
+        "first_fraud_txn_id": "3003521.0",
+        "n_txns": 1,
+        "exposure_usd": 40.21,
+        "actions_taken": "CREATE_CASE|BLOCK_CARD",
+        "report_filed": "No",
+        "analyst_notes": "Case CC-0056: cardholder C13171 reported unrecognized activity on card C13171-K2. 1 transaction(s) between 2016-07-03 and 2016-07-03 totaling $40.21 were confirmed fraudulent. Online purchases from a device not previously seen on this account, inconsistent with the cardholder's history. Card blocked and reissued. Customer reimbursed."
+      }
+    }
+  ],
+  "customer_prior_cases": [
+    {
+      "v_id": "AGENT-HHG-009",
+      "v_type": "ClosedCase",
+      "attributes": {
+        "customer_id": "C08299",
+        "card_id": "C08299-K1",
+        "opened_at": "2016-12-28 17:10:53",
+        "closed_at": "2026-09-24 16:18:45",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_fraud",
+        "first_fraud_txn_id": "3581141",
+        "n_txns": 1,
+        "exposure_usd": 30.02,
+        "actions_taken": "BLOCK_CARD|CREATE_CASE|FILE_REPORT|MONITOR_CONNECTED_CARDS",
+        "report_filed": "True",
+        "analyst_notes": "The customer denied a $30.02 online purchase made from a proxy desktop device. The card has a history of online transactions in region 330.0, while this transaction originated from region 203.0. Prior confirmed fraud cases (AGENT-HHG-009, AGENT-HHG-008, AGENT-HHG-004) involved the same card and device, indicating a card\u2011not\u2011present fraud pattern. Multiple other cards share the same device, reinforcing shared\u2011device fraud risk. Based on multiple independent evidences, the fraud probability is high."
+      }
+    }
+  ],
+  "prior_cases": [
+    {
+      "v_id": "AGENT-HHG-009",
+      "v_type": "ClosedCase",
+      "attributes": {
+        "customer_id": "C08299",
+        "card_id": "C08299-K1",
+        "opened_at": "2016-12-28 17:10:53",
+        "closed_at": "2026-09-24 16:18:45",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_fraud",
+        "first_fraud_txn_id": "3581141",
+        "n_txns": 1,
+        "exposure_usd": 30.02,
+        "actions_taken": "BLOCK_CARD|CREATE_CASE|FILE_REPORT|MONITOR_CONNECTED_CARDS",
+        "report_filed": "True",
+        "analyst_notes": "The customer denied a $30.02 online purchase made from a proxy desktop device. The card has a history of online transactions in region 330.0, while this transaction originated from region 203.0. Prior confirmed fraud cases (AGENT-HHG-009, AGENT-HHG-008, AGENT-HHG-004) involved the same card and device, indicating a card\u2011not\u2011present fraud pattern. Multiple other cards share the same device, reinforcing shared\u2011device fraud risk. Based on multiple independent evidences, the fraud probability is high."
+      }
+    }
+  ],
+  "region_neighbor_cards": [
+    {
+      "v_id": "DRV::C09933::15868::490.0::150.0::visa::226.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C07297",
+        "card_network": "visa",
+        "card_type": "debit",
+        "issuer": "226.0"
+      }
+    },
+    {
+      "v_id": "DRV::C07297::13729::455.0::150.0::mastercard::166.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C07297",
+        "card_network": "mastercard",
+        "card_type": "debit",
+        "issuer": "166.0"
+      }
+    },
+    {
+      "v_id": "DRV::C05876::12947::428.0::150.0::visa::166.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C07297",
+        "card_network": "visa",
+        "card_type": "debit",
+        "issuer": "166.0"
+      }
+    },
+    {
+      "v_id": "DRV::C08299::13026::216.0::150.0::visa::226.0::credit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C07297",
+        "card_network": "visa",
+        "card_type": "credit",
+        "issuer": "226.0"
+      }
+    },
+    {
+      "v_id": "DRV::C12382::21139::242.0::150.0::visa::166.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C02923",
+        "card_network": "visa",
+        "card_type": "debit",
+        "issuer": "166.0"
+      }
+    },
+    {
+      "v_id": "DRV::C08623::19739::470.0::150.0::mastercard::137.0::credit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C12265",
+        "card_network": "mastercard",
+        "card_type": "credit",
+        "issuer": "137.0"
+      }
+    }
+  ],
+  "email_neighbor_cards": [],
+  "_tool_calls": 1
+}

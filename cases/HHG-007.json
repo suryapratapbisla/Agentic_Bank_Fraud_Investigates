@@ -1,0 +1,82 @@
+{
+  "case_id": "HHG-007",
+  "case": {
+    "status": "closed_fraud",
+    "verdict": "fraud",
+    "fraud_probability": 0.88,
+    "pattern": "account_takeover",
+    "pattern_description": "Multiple prior confirmed fraud cases for this customer and card indicate account takeover, with inconsistent in-person purchases and high model risk.",
+    "affected_txn_ids": [
+      "3514948"
+    ],
+    "first_suspicious_txn_id": "3514948",
+    "connected_card_ids": [],
+    "connected_device_profiles": [],
+    "exposure_usd": 111.92,
+    "evidence": [
+      {
+        "claim": "High model risk score of 0.87 for transaction 3514948",
+        "source": "graph",
+        "ref": "query:transaction(3514948)",
+        "entity_ids": [
+          "3514948"
+        ]
+      },
+      {
+        "claim": "Customer C09933 has four prior confirmed fraud cases (AGENT-HHG-007, CC-5521, CC-5092, CC-4787) indicating account takeover",
+        "source": "graph",
+        "ref": "query:prior_cases(C09933)",
+        "entity_ids": [
+          "AGENT-HHG-007",
+          "CC-5521",
+          "CC-5092",
+          "CC-4787"
+        ]
+      }
+    ],
+    "similar_prior_cases": [
+      "AGENT-HHG-007",
+      "CC-5521",
+      "CC-5092",
+      "CC-4787"
+    ],
+    "summary": "The flagged in-person purchase of $111.92 carries a high model risk score (0.87). The cardholder has four prior confirmed fraud cases, all classified as account takeover or out-of-region use, demonstrating a compromised account. Combined with the elevated risk, the fraud probability is assessed at 0.88. Customer denial confirms the transaction is unauthorized, leading to a block and case creation.",
+    "written_to_graph": true,
+    "graph_case_id": "AGENT-HHG-007"
+  },
+  "evidence_requests": [
+    {
+      "type": "customer_validation",
+      "asked_after_step": 1,
+      "assumed_response": "Customer states they did not make the $111.92 purchase and the card is still in their possession."
+    }
+  ],
+  "next_best_actions": {
+    "initial": [],
+    "final": [
+      {
+        "action": "BLOCK_CARD",
+        "route": "L1",
+        "reason": "R2: customer denied transaction"
+      },
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "R2: customer denied transaction"
+      }
+    ],
+    "what_changed": "Customer denied transaction, leading to block and case creation."
+  },
+  "sar": {
+    "file": false,
+    "reason": "Exposure $111.92 below filing threshold and no coordinated pattern",
+    "narrative": "",
+    "subjects": [],
+    "total_amount_usd": 0.0,
+    "activity_dates": []
+  },
+  "stop_reason": "Fraud probability 0.88 >=0.85 with two independent evidences (high risk score and prior confirmed fraud cases).",
+  "tool_calls": 16,
+  "tokens": 7120,
+  "latency_s": 50.8
+}

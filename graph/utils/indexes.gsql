@@ -1,0 +1,16 @@
+// ============================================================
+// Investigation indexes. Run once after setup.gsql.
+// Uses GLOBAL schema change job because vertices are global types.
+//
+//   gsql utils/indexes.gsql
+// ============================================================
+
+USE GLOBAL
+
+CREATE GLOBAL SCHEMA_CHANGE JOB add_investigation_indexes {
+    ALTER VERTEX Transaction ADD INDEX idx_txn_ts ON (ts);
+    ALTER VERTEX Transaction ADD INDEX idx_txn_channel ON (channel);
+    ALTER VERTEX ClosedCase ADD INDEX idx_case_pattern ON (pattern);
+    ALTER VERTEX ClosedCase ADD INDEX idx_case_outcome ON (outcome);
+    ALTER VERTEX Card ADD INDEX idx_card_customer ON (customer_id);
+}

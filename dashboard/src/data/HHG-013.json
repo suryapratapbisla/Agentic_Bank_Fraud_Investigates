@@ -1,0 +1,132 @@
+{
+  "case_id": "HHG-013",
+  "case": {
+    "status": "closed_fraud",
+    "verdict": "fraud",
+    "fraud_probability": 0.88,
+    "pattern": "card_not_present_fraud",
+    "pattern_description": "Online purchase from a proxy anonymous desktop device atypical for the cardholder, who normally makes low\u2011value in\u2011person purchases; device linked to multiple prior confirmed fraud cases on the same customer.",
+    "affected_txn_ids": [
+      "3526826"
+    ],
+    "first_suspicious_txn_id": "3526826",
+    "connected_card_ids": [
+      "DRV::C09933::15868::490.0::150.0::visa::226.0::debit",
+      "DRV::C11923::21363::545.0::185.0::visa::138.0::debit",
+      "DRV::C02354::19248::490.0::150.0::visa::226.0::debit",
+      "DRV::C11891::18586::177.0::185.0::mastercard::195.0::credit",
+      "DRV::C11923::21363::::::::::",
+      "DRV::C13171::10114::545.0::185.0::visa::102.0::credit",
+      "DRV::C09988::11242::228.0::106.0::visa::226.0::debit",
+      "DRV::C08106::21429::545.0::185.0::visa::138.0::debit",
+      "DRV::C07297::13729::455.0::150.0::mastercard::166.0::debit",
+      "DRV::C07987::11539::583.0::150.0::visa::226.0::credit"
+    ],
+    "connected_device_profiles": [
+      "Windows | chrome 66.0"
+    ],
+    "exposure_usd": 35.66,
+    "evidence": [
+      {
+        "claim": "Risk score 0.76 for the online transaction indicates high fraud likelihood",
+        "source": "graph",
+        "ref": "transaction:3526826",
+        "entity_ids": [
+          "3526826"
+        ]
+      },
+      {
+        "claim": "Device is a proxy anonymous desktop, unusual for this cardholder",
+        "source": "graph",
+        "ref": "device_profile",
+        "entity_ids": []
+      },
+      {
+        "claim": "Prior confirmed fraud cases on same device and customer (AGENT-HHG-013, CC-4294, CC-3216)",
+        "source": "graph",
+        "ref": "prior_cases",
+        "entity_ids": [
+          "AGENT-HHG-013",
+          "CC-4294",
+          "CC-3216"
+        ]
+      },
+      {
+        "claim": "Cardholder's history consists almost entirely of low\u2011value in\u2011person purchases",
+        "source": "graph",
+        "ref": "history",
+        "entity_ids": [
+          "3526677",
+          "3526747",
+          "3526999",
+          "3527288",
+          "3527851",
+          "3528696",
+          "3529131",
+          "3529473",
+          "3529623",
+          "3531359",
+          "3532154",
+          "3532603",
+          "3532712",
+          "3532838",
+          "3533538",
+          "3533583",
+          "3533817"
+        ]
+      }
+    ],
+    "similar_prior_cases": [
+      "AGENT-HHG-013",
+      "CC-4294",
+      "CC-3216"
+    ],
+    "summary": "The flagged $35.66 online purchase scored 0.76 and originated from a proxy desktop device. The cardholder\u2019s transaction pattern is almost exclusively in\u2011person, making this behavior anomalous. The same device has been linked to multiple confirmed fraud cases for this customer. Given the high risk score, device anomaly, and prior fraud history, the transaction is deemed fraudulent under the card\u2011not\u2011present fraud pattern.",
+    "written_to_graph": true,
+    "graph_case_id": "AGENT-HHG-013"
+  },
+  "evidence_requests": [],
+  "next_best_actions": {
+    "initial": [],
+    "final": [
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "R6: Same device across multiple cards indicates coordinated abuse."
+      },
+      {
+        "action": "FILE_REPORT",
+        "route": "L2",
+        "reason": "R6: Coordinated abuse triggers filing despite low exposure."
+      },
+      {
+        "action": "MONITOR_CONNECTED_CARDS",
+        "route": "auto",
+        "reason": "R6: Same device across multiple cards."
+      },
+      {
+        "action": "BLOCK_CARD",
+        "route": "L1",
+        "reason": "R6: Coordinated abuse warrants blocking the compromised card."
+      }
+    ],
+    "what_changed": "Created case, filed SAR, blocked card, and set monitoring on connected cards."
+  },
+  "sar": {
+    "file": true,
+    "reason": "R6: Coordinated abuse across device and prior confirmed fraud cases.",
+    "narrative": "Multiple confirmed fraud incidents on the same proxy desktop device and atypical online purchase indicate card\u2011not\u2011present fraud. The SAR documents the $35.66 exposure and activity date 2016\u201112\u201109.",
+    "subjects": [
+      "C07671"
+    ],
+    "total_amount_usd": 35.66,
+    "activity_dates": [
+      "2016-12-09",
+      "2016-12-09"
+    ]
+  },
+  "stop_reason": "fraud_probability >= 0.85 with multiple independent evidences",
+  "tool_calls": 14,
+  "tokens": 6496,
+  "latency_s": 39.12
+}

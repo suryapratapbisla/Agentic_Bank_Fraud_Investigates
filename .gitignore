@@ -1,0 +1,72 @@
+# --- Secrets (never commit) ---
+.env
+.env.*
+!.env.example
+**/.env
+!**/.env.example
+agent/.env
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+env/
+ENV/
+*.egg-info/
+.eggs/
+dist/
+build/
+pip-wheel-metadata/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+
+# --- Node / frontend ---
+node_modules/
+**/node_modules/
+dashboard/dist/
+.vite/
+*.local
+
+# --- IDE / editor / Cursor ---
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.cursor/
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Generated runtime (regenerate locally) ---
+artifacts/
+*.log
+
+# --- Docker images (download locally; do not push) ---
+docker/
+*.tar.gz
+*.tar
+
+# --- Large raw IEEE-CIS extracts (use DATA/filtered_data/ in repo) ---
+DATA/transactions.csv
+DATA/identity.csv
+
+# --- Temp / scratch ---
+*.tmp
+*.bak
+*.orig
+
+# --- Optional: skip cached TG bundles (regenerate with Scripts/export_dashboard_bundles.py) ---
+# dashboard/src/data/bundles/

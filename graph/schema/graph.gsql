@@ -1,0 +1,8 @@
+// ============================================================
+// GRAPH
+// Run after: schema/vertices.gsql and schema/edges.gsql
+// ============================================================
+
+USE GLOBAL
+
+CREATE GRAPH FraudInvestigationGraph (*)

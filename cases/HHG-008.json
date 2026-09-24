@@ -1,0 +1,117 @@
+{
+  "case_id": "HHG-008",
+  "case": {
+    "status": "closed_fraud",
+    "verdict": "fraud",
+    "fraud_probability": 0.88,
+    "pattern": "card_not_present_fraud",
+    "pattern_description": "Online purchase from a proxy desktop device, inconsistent with the cardholder's typical behavior, with multiple prior confirmed fraud cases on the same card and device.",
+    "affected_txn_ids": [
+      "3558054"
+    ],
+    "first_suspicious_txn_id": "3558054",
+    "connected_card_ids": [
+      "DRV::C09933::15868::490.0::150.0::visa::226.0::debit",
+      "DRV::C11923::21363::545.0::185.0::visa::138.0::debit",
+      "DRV::C02354::19248::490.0::150.0::visa::226.0::debit",
+      "DRV::C11891::18586::177.0::185.0::mastercard::195.0::credit",
+      "DRV::C11923::21363::::::::::",
+      "DRV::C05876::12947::428.0::150.0::visa::166.0::debit",
+      "DRV::C03042::15158::562.0::150.0::mastercard::219.0::credit",
+      "DRV::C08106::21429::545.0::185.0::visa::138.0::debit",
+      "DRV::C09988::11242::228.0::106.0::visa::226.0::debit",
+      "DRV::C08299::13026::216.0::150.0::visa::226.0::credit"
+    ],
+    "connected_device_profiles": [
+      "desktop, OS=, Browser=chrome 66.0, Status=Proxy, Proxy=IP_PROXY:ANONYMOUS"
+    ],
+    "exposure_usd": 55.68,
+    "evidence": [
+      {
+        "claim": "Customer reports unauthorized $55.68 purchase",
+        "source": "customer",
+        "ref": "evidence_request:1",
+        "entity_ids": []
+      },
+      {
+        "claim": "Prior confirmed fraud case AGENT-HHG-008 on same card and device",
+        "source": "graph",
+        "ref": "graph:AGENT-HHG-008",
+        "entity_ids": [
+          "AGENT-HHG-008"
+        ]
+      },
+      {
+        "claim": "Device is proxy anonymous, indicating card-not-present fraud",
+        "source": "graph",
+        "ref": "graph:device_profile",
+        "entity_ids": []
+      },
+      {
+        "claim": "Multiple other cards on same device have prior fraud history",
+        "source": "graph",
+        "ref": "graph:other_cards",
+        "entity_ids": []
+      }
+    ],
+    "similar_prior_cases": [
+      "AGENT-HHG-008",
+      "CC-5010",
+      "CC-4485",
+      "CC-0056"
+    ],
+    "summary": "The cardholder C13171 denied a $55.68 online purchase made from a proxy desktop device. Historical data shows several confirmed card-not-present fraud cases on the same card and device, including AGENT-HHG-008 and CC-5010. The device profile (proxy, anonymous) and shared-device activity with other cards further support fraud. Fraud probability is assessed at 0.88. The case is closed as fraud.",
+    "written_to_graph": true,
+    "graph_case_id": "AGENT-HHG-008"
+  },
+  "evidence_requests": [
+    {
+      "type": "customer_validation",
+      "asked_after_step": 1,
+      "assumed_response": "Customer confirms they did not make the purchase and the card is still in their possession."
+    }
+  ],
+  "next_best_actions": {
+    "initial": [],
+    "final": [
+      {
+        "action": "BLOCK_CARD",
+        "route": "L1",
+        "reason": "R2: customer denies transaction"
+      },
+      {
+        "action": "FILE_REPORT",
+        "route": "L2",
+        "reason": "R2: shared device/card fraud triggers SAR filing"
+      },
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "R2: fraud investigation case opened"
+      },
+      {
+        "action": "MONITOR_CONNECTED_CARDS",
+        "route": "auto",
+        "reason": "R6: shared device links other cards"
+      }
+    ],
+    "what_changed": "Added BLOCK_CARD and FILE_REPORT based on customer denial and shared device fraud evidence."
+  },
+  "sar": {
+    "file": true,
+    "reason": "R2: shared device/card fraud triggers filing SAR",
+    "narrative": "Card-not-present fraud on a proxy desktop device with shared-device activity; unauthorized $55.68 transaction confirmed by customer denial and prior cases.",
+    "subjects": [
+      "C13171-K2"
+    ],
+    "total_amount_usd": 55.68,
+    "activity_dates": [
+      "2016-12-19",
+      "2016-12-19"
+    ]
+  },
+  "stop_reason": "fraud_probability >= 0.85 with multiple independent evidences; investigation complete.",
+  "tool_calls": 15,
+  "tokens": 6594,
+  "latency_s": 51.67
+}

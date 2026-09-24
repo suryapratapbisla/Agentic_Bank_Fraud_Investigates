@@ -1,0 +1,123 @@
+{
+  "case_id": "HHG-015",
+  "case": {
+    "status": "closed_fraud",
+    "verdict": "fraud",
+    "fraud_probability": 0.9,
+    "pattern": "card_not_present_fraud",
+    "pattern_description": "Online purchase of $599.94 from a proxy desktop device, atypical for cardholder whose history is low\u2011value online and in\u2011person spend, with prior confirmed fraud on same card and device.",
+    "affected_txn_ids": [
+      "3464869"
+    ],
+    "first_suspicious_txn_id": "3464869",
+    "connected_card_ids": [
+      "DRV::C07987::11539::583.0::150.0::visa::226.0::credit",
+      "DRV::C02354::19248::490.0::150.0::visa::226.0::debit",
+      "DRV::C09933::15868::490.0::150.0::visa::226.0::debit",
+      "DRV::C05876::12947::428.0::150.0::visa::166.0::debit",
+      "DRV::C08623::19739::470.0::150.0::mastercard::137.0::credit",
+      "DRV::C12382::21139::242.0::150.0::visa::166.0::debit",
+      "DRV::C04570::20749::583.0::150.0::mastercard::135.0::credit",
+      "DRV::C11923::21363::545.0::185.0::visa::138.0::debit",
+      "DRV::C07297::13729::455.0::150.0::mastercard::166.0::debit",
+      "DRV::C10434::17379::258.0::150.0::visa::226.0::credit"
+    ],
+    "connected_device_profiles": [
+      "Trident/7.0 | Windows 8.1 | ie 11.0 for desktop"
+    ],
+    "exposure_usd": 599.94,
+    "evidence": [
+      {
+        "claim": "Transaction 3464869 is online, $599.94, risk score 0.77, unusual amount for cardholder",
+        "source": "graph",
+        "ref": "query:flagged_txn(3464869)",
+        "entity_ids": [
+          "3464869"
+        ]
+      },
+      {
+        "claim": "Prior confirmed fraud case AGENT-HHG-015 on same card and device",
+        "source": "graph",
+        "ref": "document:prior_cases",
+        "entity_ids": [
+          "AGENT-HHG-015"
+        ]
+      },
+      {
+        "claim": "Other cards C07987 and C02354 share the same device and email domain anonymous.com",
+        "source": "graph",
+        "ref": "document:connected_cards",
+        "entity_ids": [
+          "C07987",
+          "C02354"
+        ]
+      },
+      {
+        "claim": "Device profile shows desktop with proxy, not a known device for customer",
+        "source": "graph",
+        "ref": "query:device_profile",
+        "entity_ids": []
+      }
+    ],
+    "similar_prior_cases": [
+      "AGENT-HHG-015",
+      "CC-3886",
+      "CC-0615"
+    ],
+    "summary": "The flagged online purchase of $599.94 is inconsistent with the cardholder's typical spending pattern and originates from a proxy desktop device previously linked to confirmed fraud. Multiple prior confirmed fraud cases on this card and device, plus other cards sharing the same device and email domain, indicate coordinated abuse. Fraud probability is assessed at 0.90, triggering immediate fraud actions.",
+    "written_to_graph": true,
+    "graph_case_id": "AGENT-HHG-015"
+  },
+  "evidence_requests": [],
+  "next_best_actions": {
+    "initial": [
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "R6: same device/email across multiple cards triggers case creation"
+      }
+    ],
+    "final": [
+      {
+        "action": "BLOCK_CARD",
+        "route": "L1",
+        "reason": "R6: same device/email across multiple cards and high fraud probability"
+      },
+      {
+        "action": "FILE_REPORT",
+        "route": "L2",
+        "reason": "R6: connected cards present and exposure warrants SAR filing"
+      },
+      {
+        "action": "MONITOR_CONNECTED_CARDS",
+        "route": "auto",
+        "reason": "R6: same device/email across multiple cards"
+      },
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "R2: fraud investigation case opened"
+      }
+    ],
+    "what_changed": "Added BLOCK_CARD, FILE_REPORT and MONITOR_CONNECTED_CARDS based on pattern R6"
+  },
+  "sar": {
+    "file": true,
+    "reason": "R6: same device/email across multiple cards requires SAR filing",
+    "narrative": "Multiple cards (C07987, C02354) share the proxy desktop device and email domain with the flagged transaction, indicating coordinated fraud. The $599.94 online purchase is atypical and aligns with prior confirmed fraud on this card.",
+    "subjects": [
+      "C03042",
+      "C07987",
+      "C02354"
+    ],
+    "total_amount_usd": 599.94,
+    "activity_dates": [
+      "2016-11-17",
+      "2016-11-17"
+    ]
+  },
+  "stop_reason": "fraud_probability >= 0.85 with multiple supporting evidences (risk score, prior confirmed fraud)",
+  "tool_calls": 7,
+  "tokens": 6371,
+  "latency_s": 46.95
+}

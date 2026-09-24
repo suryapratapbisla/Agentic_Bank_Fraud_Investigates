@@ -1,0 +1,36 @@
+// ============================================================
+// Entity: BillingRegion only. Does not load Transaction.
+//
+// Source:
+//   DATA/filtered_data/transactions_with_identity_filtered.csv
+//   columns used: addr1 (region id), addr2 (country)
+//
+// There is no separate region id column. PRIMARY_ID is addr1.
+// BILLED_IN is loaded here because Transaction already exists.
+// Rows with an empty addr1 are skipped. Same region id upserts.
+//
+// Install:
+//   gsql loading/load_billing_regions.gsql
+//
+// Run from graph/:
+//   RUN LOADING JOB load_billing_regions USING f_txns="../DATA/filtered_data/transactions_with_identity_filtered.csv"
+//   SHOW LOADING STATUS ALL
+// ============================================================
+
+USE GRAPH FraudInvestigationGraph
+
+CREATE LOADING JOB load_billing_regions FOR GRAPH FraudInvestigationGraph {
+    DEFINE FILENAME f_txns = "/tmp/agentic_deploy/DATA/filtered_data/transactions_with_identity_filtered.csv";
+
+    LOAD f_txns
+        TO VERTEX BillingRegion VALUES ($"addr1", $"addr2")
+        WHERE $"addr1" != ""
+        USING HEADER="true", SEPARATOR=",", QUOTE="double";
+
+    LOAD f_txns
+        TO EDGE BILLED_IN VALUES ($"TransactionID", $"addr1")
+        WHERE $"addr1" != "" AND $"TransactionID" != ""
+        USING HEADER="true", SEPARATOR=",", QUOTE="double";
+}
+
+// RUN LOADING JOB load_billing_regions USING f_txns="../DATA/filtered_data/transactions_with_identity_filtered.csv"

@@ -1,0 +1,116 @@
+{
+  "case_id": "HHG-016",
+  "case": {
+    "status": "closed_fraud",
+    "verdict": "fraud",
+    "fraud_probability": 0.88,
+    "pattern": "card_not_present_fraud",
+    "pattern_description": "Online purchase from a proxy desktop device inconsistent with the cardholder's typical behavior, matching prior confirmed card\u2011not\u2011present fraud on the same device.",
+    "affected_txn_ids": [
+      "3534820"
+    ],
+    "first_suspicious_txn_id": "3534820",
+    "connected_card_ids": [
+      "DRV::C09933::15868::490.0::150.0::visa::226.0::debit",
+      "DRV::C11923::21363::545.0::185.0::visa::138.0::debit",
+      "DRV::C02354::19248::490.0::150.0::visa::226.0::debit",
+      "DRV::C11891::18586::177.0::185.0::mastercard::195.0::credit",
+      "DRV::C07671::22756::452.0::150.0::mastercard::117.0::debit",
+      "DRV::C11923::21363::::::::::",
+      "DRV::C13171::10114::545.0::185.0::visa::102.0::credit",
+      "DRV::C08106::21429::545.0::185.0::visa::138.0::debit",
+      "DRV::C07297::13729::455.0::150.0::mastercard::166.0::debit",
+      "DRV::C07987::11539::583.0::150.0::visa::226.0::credit"
+    ],
+    "connected_device_profiles": [
+      "Windows | chrome 66.0"
+    ],
+    "exposure_usd": 59.67,
+    "evidence": [
+      {
+        "claim": "Customer denied the $59.67 online purchase",
+        "source": "customer",
+        "ref": "evidence_request:1",
+        "entity_ids": [
+          "C09988"
+        ]
+      },
+      {
+        "claim": "Transaction originated from a proxy desktop device",
+        "source": "graph",
+        "ref": "device_profile",
+        "entity_ids": [
+          "C09988-K1"
+        ]
+      },
+      {
+        "claim": "Prior confirmed fraud case AGENT-HHG-016 on same card and device",
+        "source": "graph",
+        "ref": "prior_closed_cases",
+        "entity_ids": [
+          "AGENT-HHG-016"
+        ]
+      },
+      {
+        "claim": "Pattern matches card_not_present_fraud",
+        "source": "document",
+        "ref": "known_patterns",
+        "entity_ids": []
+      }
+    ],
+    "similar_prior_cases": [
+      "AGENT-HHG-016",
+      "AGENT-HHG-013",
+      "AGENT-HHG-009",
+      "AGENT-HHG-008"
+    ],
+    "summary": "The customer reported an unauthorized $59.67 online purchase. The transaction was made from a proxy desktop device, a known indicator of card\u2011not\u2011present fraud. A prior confirmed fraud case (AGENT-HHG-016) on the same card and device reinforces the suspicion. Multiple other cards share the same device, indicating broader abuse. Based on the evidence, the transaction is classified as fraud.",
+    "written_to_graph": true,
+    "graph_case_id": "AGENT-HHG-016"
+  },
+  "evidence_requests": [],
+  "next_best_actions": {
+    "initial": [],
+    "final": [
+      {
+        "action": "BLOCK_CARD",
+        "route": "L1",
+        "reason": "R2: customer denies transaction"
+      },
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "R2: customer denies transaction"
+      },
+      {
+        "action": "FILE_REPORT",
+        "route": "L2",
+        "reason": "R6: same device across multiple cards triggers report"
+      },
+      {
+        "action": "MONITOR_CONNECTED_CARDS",
+        "route": "auto",
+        "reason": "R6: same device across multiple cards"
+      }
+    ],
+    "what_changed": "Added BLOCK_CARD, CREATE_CASE, FILE_REPORT, MONITOR_CONNECTED_CARDS based on R2 and R6"
+  },
+  "sar": {
+    "file": true,
+    "reason": "FILE_REPORT required due to shared device fraud (R6)",
+    "narrative": "Customer denied $59.67 online purchase made from a proxy desktop device; prior confirmed fraud on same device; pattern card_not_present_fraud.",
+    "subjects": [
+      "C09988",
+      "C09988-K1"
+    ],
+    "total_amount_usd": 59.67,
+    "activity_dates": [
+      "2016-12-11",
+      "2016-12-11"
+    ]
+  },
+  "stop_reason": "fraud_probability >= 0.85 with multiple supporting evidences (customer denial, prior confirmed case, proxy device)",
+  "tool_calls": 13,
+  "tokens": 6007,
+  "latency_s": 41.04
+}

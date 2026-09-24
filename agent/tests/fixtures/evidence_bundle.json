@@ -1,0 +1,68 @@
+{
+  "flagged_txn": {
+    "v_id": "3514030",
+    "attributes": {
+      "transaction_id": "3514030",
+      "amount": 77.07,
+      "ts": "2016-12-05 01:55:28",
+      "channel": "online",
+      "product_cd": "W",
+      "addr1": "444.0",
+      "addr2": "87",
+      "p_email_domain": "gmail.com"
+    }
+  },
+  "owner_cards": [
+    {"v_id": "DRV::C12382::13926::::::visa::226::debit"}
+  ],
+  "card_transactions": [
+    {
+      "v_id": "3514030",
+      "attributes": {
+        "amount": 77.07,
+        "ts": "2016-12-05 01:55:28",
+        "channel": "online",
+        "risk_score": 0.61,
+        "product_cd": "W",
+        "addr1": "444.0"
+      }
+    },
+    {
+      "v_id": "3514500",
+      "attributes": {
+        "amount": 5.0,
+        "ts": "2016-12-05 02:01:00",
+        "channel": "online",
+        "risk_score": 0.81,
+        "product_cd": "W",
+        "addr1": "444.0"
+      }
+    }
+  ],
+  "device": {
+    "v_id": "DeviceA",
+    "attributes": {
+      "device_type": "mobile",
+      "device_info": "SAMSUNG",
+      "os": "Android",
+      "browser": "Samsung Browser",
+      "device_status": "New",
+      "proxy_type": "anonymous"
+    }
+  },
+  "device_neighbors": [
+    {"v_id": "DRV::C00001::9999::::::visa::226::debit"}
+  ],
+  "fraud_cases_on_device": [
+    {"v_id": "CC-0099", "attributes": {"outcome": "confirmed_fraud"}}
+  ],
+  "prior_cases": [
+    {"v_id": "CC-0003", "attributes": {"outcome": "cleared", "pattern": "none"}}
+  ],
+  "region_neighbor_cards": [
+    {"v_id": "DRV::C00001::9999::::::visa::226::debit"}
+  ],
+  "email_neighbor_cards": [
+    {"v_id": "DRV::C00002::8888::::::mastercard::224::credit"}
+  ]
+}

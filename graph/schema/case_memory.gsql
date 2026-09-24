@@ -1,0 +1,19 @@
+// ============================================================
+// CaseMemory vertex — normalized investigation memory + vector index.
+// Run via setup.gsql after vertices.gsql / edges.gsql.
+// Vector attribute added in utils/case_memory_vector.gsql (schema change job).
+// ============================================================
+
+USE GLOBAL
+
+CREATE VERTEX CaseMemory (
+    PRIMARY_ID case_id STRING,
+    customer_id STRING,
+    outcome STRING,
+    pattern STRING,
+    closed_at DATETIME,
+    investigation_summary STRING,
+    analyst_notes STRING,
+    risk_factors STRING,
+    graph_features_json STRING
+) WITH STATS="OUTDEGREE_BY_EDGETYPE"

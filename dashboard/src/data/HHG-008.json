@@ -1,0 +1,114 @@
+{
+  "case_id": "HHG-008",
+  "case": {
+    "status": "closed_fraud",
+    "verdict": "fraud",
+    "fraud_probability": 0.92,
+    "pattern": "card_not_present_fraud",
+    "pattern_description": "Online purchase from a proxy desktop device, not matching the customer's typical behavior, similar to prior confirmed card\u2011not\u2011present fraud cases.",
+    "affected_txn_ids": [
+      "3558054"
+    ],
+    "first_suspicious_txn_id": "3558054",
+    "connected_card_ids": [
+      "DRV::C09933::15868::490.0::150.0::visa::226.0::debit",
+      "DRV::C11923::21363::545.0::185.0::visa::138.0::debit",
+      "DRV::C02354::19248::490.0::150.0::visa::226.0::debit",
+      "DRV::C05876::12947::428.0::150.0::visa::166.0::debit",
+      "DRV::C11891::18586::177.0::185.0::mastercard::195.0::credit",
+      "DRV::C11923::21363::::::::::",
+      "DRV::C08299::13026::216.0::150.0::visa::226.0::credit",
+      "DRV::C03042::15158::562.0::150.0::mastercard::219.0::credit",
+      "DRV::C09988::11242::228.0::106.0::visa::226.0::debit",
+      "DRV::C08106::21429::545.0::185.0::visa::138.0::debit"
+    ],
+    "connected_device_profiles": [
+      "desktop, OS=unknown, Browser=chrome 66.0, Proxy=IP_PROXY:ANONYMOUS"
+    ],
+    "exposure_usd": 55.68,
+    "evidence": [
+      {
+        "claim": "Customer denied making the $55.68 online purchase",
+        "source": "customer",
+        "ref": "evidence_request:1",
+        "entity_ids": []
+      },
+      {
+        "claim": "Transaction originated from a proxy desktop device",
+        "source": "graph",
+        "ref": "device_profile",
+        "entity_ids": []
+      },
+      {
+        "claim": "Prior confirmed fraud case AGENT-HHG-008 on same card and device",
+        "source": "graph",
+        "ref": "prior_case:AGENT-HHG-008",
+        "entity_ids": []
+      },
+      {
+        "claim": "Pattern matches card_not_present_fraud",
+        "source": "document",
+        "ref": "pattern_definition",
+        "entity_ids": []
+      }
+    ],
+    "similar_prior_cases": [
+      "AGENT-HHG-008",
+      "CC-5010",
+      "CC-4485",
+      "CC-0056"
+    ],
+    "summary": "The cardholder C13171 reported an unauthorized $55.68 online purchase made from a proxy desktop device. The same card and device have been involved in multiple prior confirmed card\u2011not\u2011present fraud cases (AGENT-HHG-008, CC-5010, CC-4485, CC-0056). Combined with the customer denial and the proxy device, the fraud probability is high (0.92). The case is closed as fraud with the card blocked and a SAR filed.",
+    "written_to_graph": true,
+    "graph_case_id": "AGENT-HHG-008"
+  },
+  "evidence_requests": [],
+  "next_best_actions": {
+    "initial": [],
+    "final": [
+      {
+        "action": "BLOCK_CARD",
+        "route": "L1",
+        "reason": "R2: Customer denies transaction \u2192 BLOCK_CARD + CREATE_CASE; exposure $55.68 <= $2500, use L1"
+      },
+      {
+        "action": "FILE_REPORT",
+        "route": "L2",
+        "reason": "R9: Connected cards on same device indicate coordinated abuse; FILE_REPORT required and must use L2"
+      },
+      {
+        "action": "MONITOR_CONNECTED_CARDS",
+        "route": "auto",
+        "reason": "R6: Same device/email across multiple cards \u2192 MONITOR_CONNECTED_CARDS"
+      },
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "R2: fraud investigation case opened"
+      }
+    ],
+    "what_changed": "Added fraud determination, blocked card, filed SAR, and set monitoring on connected cards."
+  },
+  "sar": {
+    "file": true,
+    "reason": "Connected cards on same device indicate coordinated fraud (policy rule)",
+    "narrative": "Multiple cards used on the same proxy desktop device have been linked to confirmed card\u2011not\u2011present fraud. The unauthorized $55.68 transaction is part of this coordinated abuse.",
+    "subjects": [
+      "C13171-K2",
+      "C09933",
+      "C11923",
+      "C02354",
+      "C05876",
+      "C11891"
+    ],
+    "total_amount_usd": 55.68,
+    "activity_dates": [
+      "2016-12-19",
+      "2016-12-19"
+    ]
+  },
+  "stop_reason": "Fraud probability >=0.85 with multiple supporting evidences (customer denial, prior confirmed fraud cases, proxy device) \u2013 stopping per policy.",
+  "tool_calls": 15,
+  "tokens": 6416,
+  "latency_s": 53.23
+}

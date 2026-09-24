@@ -1,0 +1,88 @@
+{
+  "case_id": "HHG-019",
+  "case": {
+    "status": "closed_fraud",
+    "verdict": "fraud",
+    "fraud_probability": 0.88,
+    "pattern": "card_not_present_fraud",
+    "pattern_description": "Online purchase from a proxy desktop device inconsistent with the cardholder's typical in\u2011person spending, matching prior confirmed card\u2011not\u2011present fraud on the same device.",
+    "affected_txn_ids": [
+      "3503878"
+    ],
+    "first_suspicious_txn_id": "3503878",
+    "connected_card_ids": [],
+    "connected_device_profiles": [
+      "Windows | other | chrome 61.0"
+    ],
+    "exposure_usd": 99.92,
+    "evidence": [
+      {
+        "claim": "Risk score of 0.90 for the flagged online transaction",
+        "source": "graph",
+        "ref": "query:flagged_txn(risk_score)",
+        "entity_ids": [
+          "3503878"
+        ]
+      },
+      {
+        "claim": "Prior confirmed fraud cases (CC-5026, CC-2860, CC-2011) on same customer and device",
+        "source": "graph",
+        "ref": "query:prior_cases(customer_id)",
+        "entity_ids": [
+          "CC-5026",
+          "CC-2860",
+          "CC-2011"
+        ]
+      },
+      {
+        "claim": "Device is a proxy desktop, a known indicator of card\u2011not\u2011present fraud",
+        "source": "graph",
+        "ref": "query:device_profile(card_id)",
+        "entity_ids": []
+      },
+      {
+        "claim": "Relevant previous investigations (AGENT-HHG-017 etc.) link this device to confirmed card\u2011not\u2011present fraud",
+        "source": "document",
+        "ref": "document:Relevant Previous Investigations",
+        "entity_ids": []
+      }
+    ],
+    "similar_prior_cases": [
+      "CC-5026",
+      "CC-2860",
+      "CC-2011"
+    ],
+    "summary": "The flagged $99.92 online purchase scored 0.90 on the real\u2011time model. The card has a history of in\u2011person use, but the transaction originated from a proxy desktop device, matching multiple prior confirmed card\u2011not\u2011present fraud cases on the same device. Combined with a high risk score and independent fraud evidence, the fraud probability is assessed at 0.88, leading to a fraud verdict.",
+    "written_to_graph": true,
+    "graph_case_id": "AGENT-HHG-019"
+  },
+  "evidence_requests": [],
+  "next_best_actions": {
+    "initial": [],
+    "final": [
+      {
+        "action": "BLOCK_CARD",
+        "route": "L1",
+        "reason": "High fraud probability with multiple independent fraud indicators (risk score, prior confirmed fraud on same device)."
+      },
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "Fraud probability >= 0.30 requires case creation per policy."
+      }
+    ],
+    "what_changed": "Initial assessment led to fraud verdict; actions added to block the card and create a case."
+  },
+  "sar": {
+    "file": false,
+    "reason": "Exposure $99.92 is below $1,000 and no coordinated or undocumented pattern, so SAR filing not required per policy.",
+    "narrative": "",
+    "subjects": [],
+    "total_amount_usd": 0.0,
+    "activity_dates": []
+  },
+  "stop_reason": "Fraud probability >= 0.85 supported by two independent pieces of evidence (high risk score and prior confirmed fraud on same device).",
+  "tool_calls": 7,
+  "tokens": 6869,
+  "latency_s": 91.05
+}

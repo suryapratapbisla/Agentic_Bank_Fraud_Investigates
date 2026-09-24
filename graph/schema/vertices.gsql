@@ -1,0 +1,92 @@
+// ============================================================
+// VERTICES
+// Run after: USE GLOBAL
+// Do not change vertex names or attributes.
+// ============================================================
+
+USE GLOBAL
+
+CREATE VERTEX Customer (
+    PRIMARY_ID customer_id STRING,
+    total_cards INT,            // filled by post-load query (needs COUNT DISTINCT)
+    first_seen DATETIME,        // filled during load via MIN(ts) reducer
+    last_seen DATETIME,         // filled during load via MAX(ts) reducer
+    total_transactions INT      // filled during load via COUNT() reducer
+) WITH STATS="OUTDEGREE_BY_EDGETYPE"
+
+CREATE VERTEX Card (
+    PRIMARY_ID card_id STRING,
+    customer_id STRING,     // denormalized for quick lookups without a traversal
+    card_network STRING,    // from card4: visa / mastercard / etc.
+    card_type STRING,       // from card6: debit / credit
+    issuer STRING           // from card5: issuing bank category
+) WITH STATS="OUTDEGREE_BY_EDGETYPE"
+
+CREATE VERTEX Transaction (
+    PRIMARY_ID transaction_id STRING,
+    transaction_dt INT,       // raw TransactionDT (seconds offset)
+    ts DATETIME,              // human-readable timestamp
+    amount DOUBLE,
+    product_cd STRING,
+    addr1 STRING,             // billing region
+    addr2 STRING,             // billing country
+    dist1 DOUBLE,
+    dist2 DOUBLE,
+    p_email_domain STRING,
+    r_email_domain STRING,
+    channel STRING,           // online / in-person, from case data
+    risk_score DOUBLE,
+    raw_features_json STRING  // optional bundle of V/C/D/M columns if ever needed later; leave NULL for now
+) WITH STATS="OUTDEGREE_BY_EDGETYPE"
+
+CREATE VERTEX DeviceProfile (
+    // key stays coarse on purpose: DeviceType + DeviceInfo + OS only.
+    // Browser/screen/proxy are stored as attributes, NOT part of the key,
+    // so the same physical device still links across sessions even if
+    // browser version or screen res differs slightly.
+    PRIMARY_ID device_hash STRING,
+    device_type STRING,
+    device_info STRING,
+    os STRING,                // from identity.csv id_30
+    browser STRING,           // from identity.csv id_31
+    screen_resolution STRING, // from identity.csv id_33
+    proxy_type STRING,        // from identity.csv id_23
+    device_status STRING      // from identity.csv id_12 / id_28 (New/Found)
+) WITH STATS="OUTDEGREE_BY_EDGETYPE"
+
+CREATE VERTEX EmailDomain (
+    PRIMARY_ID domain STRING
+) WITH STATS="OUTDEGREE_BY_EDGETYPE"
+
+CREATE VERTEX BillingRegion (
+    PRIMARY_ID region_id STRING,  // from addr1
+    country STRING                // from addr2
+) WITH STATS="OUTDEGREE_BY_EDGETYPE"
+
+CREATE VERTEX ClosedCase (
+    PRIMARY_ID case_id STRING,
+    customer_id STRING,
+    card_id STRING,
+    opened_at DATETIME,
+    closed_at DATETIME,
+    outcome STRING,             // confirmed_fraud / cleared
+    pattern STRING,             // card_testing / card_not_present_fraud / etc.
+    first_fraud_txn_id STRING,
+    n_txns INT,
+    exposure_usd DOUBLE,
+    actions_taken STRING,       // pipe-separated, e.g. CREATE_CASE|BLOCK_CARD
+    report_filed STRING,
+    analyst_notes STRING
+) WITH STATS="OUTDEGREE_BY_EDGETYPE"
+
+CREATE VERTEX CaseMemory (
+    PRIMARY_ID case_id STRING,
+    customer_id STRING,
+    outcome STRING,
+    pattern STRING,
+    closed_at DATETIME,
+    investigation_summary STRING,
+    analyst_notes STRING,
+    risk_factors STRING,
+    graph_features_json STRING
+) WITH STATS="OUTDEGREE_BY_EDGETYPE"

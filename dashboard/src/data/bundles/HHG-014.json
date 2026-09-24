@@ -1,0 +1,977 @@
+{
+  "flagged_txn": {
+    "v_id": "3478561",
+    "v_type": "Transaction",
+    "attributes": {
+      "transaction_dt": 12413460,
+      "ts": "2016-11-22 16:11:00",
+      "amount": 74.96,
+      "product_cd": "C",
+      "addr1": "191.0",
+      "addr2": "87.0",
+      "dist1": 0,
+      "dist2": 0,
+      "p_email_domain": "yahoo.com",
+      "r_email_domain": "gmail.com",
+      "channel": "online",
+      "risk_score": 0.05,
+      "raw_features_json": ""
+    }
+  },
+  "owner_cards": [
+    {
+      "v_id": "DRV::C13487::13250::555.0::150.0::mastercard::117.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C04570",
+        "card_network": "mastercard",
+        "card_type": "debit",
+        "issuer": "117.0"
+      }
+    }
+  ],
+  "card_transactions": [
+    {
+      "v_id": "3402749",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 10168428,
+        "ts": "2016-10-27 16:33:48",
+        "amount": 30.9,
+        "product_cd": "W",
+        "addr1": "272.0",
+        "addr2": "87.0",
+        "dist1": 8,
+        "dist2": 0,
+        "p_email_domain": "gmail.com",
+        "r_email_domain": "",
+        "channel": "in_person",
+        "risk_score": 0.15,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3403715",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 10184610,
+        "ts": "2016-10-27 21:03:30",
+        "amount": 35.88,
+        "product_cd": "W",
+        "addr1": "191.0",
+        "addr2": "87.0",
+        "dist1": 23,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "",
+        "channel": "in_person",
+        "risk_score": 0.13,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3412468",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 10428632,
+        "ts": "2016-10-30 16:50:32",
+        "amount": 57.9,
+        "product_cd": "W",
+        "addr1": "191.0",
+        "addr2": "87.0",
+        "dist1": 1,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "",
+        "channel": "in_person",
+        "risk_score": 0.18,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3421895",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 10675711,
+        "ts": "2016-11-02 13:28:31",
+        "amount": 25.92,
+        "product_cd": "W",
+        "addr1": "272.0",
+        "addr2": "87.0",
+        "dist1": 8,
+        "dist2": 0,
+        "p_email_domain": "gmail.com",
+        "r_email_domain": "",
+        "channel": "in_person",
+        "risk_score": 0.23,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3432321",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 10944105,
+        "ts": "2016-11-05 16:01:45",
+        "amount": 26.03,
+        "product_cd": "W",
+        "addr1": "191.0",
+        "addr2": "87.0",
+        "dist1": 23,
+        "dist2": 0,
+        "p_email_domain": "gmail.com",
+        "r_email_domain": "",
+        "channel": "in_person",
+        "risk_score": 0.01,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3438604",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 11122695,
+        "ts": "2016-11-07 17:38:15",
+        "amount": 55.98,
+        "product_cd": "W",
+        "addr1": "191.0",
+        "addr2": "87.0",
+        "dist1": 23,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "",
+        "channel": "in_person",
+        "risk_score": 0.01,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3443869",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 11289016,
+        "ts": "2016-11-09 15:50:16",
+        "amount": 30.88,
+        "product_cd": "W",
+        "addr1": "272.0",
+        "addr2": "87.0",
+        "dist1": 8,
+        "dist2": 0,
+        "p_email_domain": "gmail.com",
+        "r_email_domain": "",
+        "channel": "in_person",
+        "risk_score": 0.13,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3448940",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 11454372,
+        "ts": "2016-11-11 13:46:12",
+        "amount": 107.99,
+        "product_cd": "W",
+        "addr1": "191.0",
+        "addr2": "87.0",
+        "dist1": 23,
+        "dist2": 0,
+        "p_email_domain": "gmail.com",
+        "r_email_domain": "",
+        "channel": "in_person",
+        "risk_score": 0.09,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3457509",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 11729375,
+        "ts": "2016-11-14 18:09:35",
+        "amount": 35.92,
+        "product_cd": "W",
+        "addr1": "191.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "",
+        "channel": "in_person",
+        "risk_score": 0.15,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3458103",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 11740240,
+        "ts": "2016-11-14 21:10:40",
+        "amount": 35.9,
+        "product_cd": "W",
+        "addr1": "191.0",
+        "addr2": "87.0",
+        "dist1": 23,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "",
+        "channel": "in_person",
+        "risk_score": 0.31,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3458865",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 11756012,
+        "ts": "2016-11-15 01:33:32",
+        "amount": 35.86,
+        "product_cd": "W",
+        "addr1": "191.0",
+        "addr2": "87.0",
+        "dist1": 23,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "",
+        "channel": "in_person",
+        "risk_score": 0.18,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3460634",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 11824200,
+        "ts": "2016-11-15 20:30:00",
+        "amount": 112.37,
+        "product_cd": "C",
+        "addr1": "191.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "yahoo.com",
+        "r_email_domain": "gmail.com",
+        "channel": "online",
+        "risk_score": 0.1,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3462636",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 11896374,
+        "ts": "2016-11-16 16:32:54",
+        "amount": 30.88,
+        "product_cd": "W",
+        "addr1": "272.0",
+        "addr2": "87.0",
+        "dist1": 8,
+        "dist2": 0,
+        "p_email_domain": "gmail.com",
+        "r_email_domain": "",
+        "channel": "in_person",
+        "risk_score": 0.25,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3477218",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 12353945,
+        "ts": "2016-11-21 23:39:05",
+        "amount": 36.04,
+        "product_cd": "W",
+        "addr1": "191.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "",
+        "channel": "in_person",
+        "risk_score": 0.06,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3478561",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 12413460,
+        "ts": "2016-11-22 16:11:00",
+        "amount": 74.96,
+        "product_cd": "C",
+        "addr1": "191.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "yahoo.com",
+        "r_email_domain": "gmail.com",
+        "channel": "online",
+        "risk_score": 0.05,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3478886",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 12420255,
+        "ts": "2016-11-22 18:04:15",
+        "amount": 31,
+        "product_cd": "W",
+        "addr1": "272.0",
+        "addr2": "87.0",
+        "dist1": 8,
+        "dist2": 0,
+        "p_email_domain": "gmail.com",
+        "r_email_domain": "",
+        "channel": "in_person",
+        "risk_score": 0.34,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3489320",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 12764340,
+        "ts": "2016-11-26 17:39:00",
+        "amount": 252.28,
+        "product_cd": "C",
+        "addr1": "191.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "yahoo.com",
+        "r_email_domain": "gmail.com",
+        "channel": "online",
+        "risk_score": 0.22,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3495787",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 12953235,
+        "ts": "2016-11-28 22:07:15",
+        "amount": 35.92,
+        "product_cd": "W",
+        "addr1": "191.0",
+        "addr2": "87.0",
+        "dist1": 23,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "",
+        "channel": "in_person",
+        "risk_score": 0.19,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3497594",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 13020933,
+        "ts": "2016-11-29 16:55:33",
+        "amount": 30.96,
+        "product_cd": "W",
+        "addr1": "272.0",
+        "addr2": "87.0",
+        "dist1": 8,
+        "dist2": 0,
+        "p_email_domain": "gmail.com",
+        "r_email_domain": "",
+        "channel": "in_person",
+        "risk_score": 0.11,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3506459",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 13268981,
+        "ts": "2016-12-02 13:49:41",
+        "amount": 30.87,
+        "product_cd": "W",
+        "addr1": "272.0",
+        "addr2": "87.0",
+        "dist1": 8,
+        "dist2": 0,
+        "p_email_domain": "gmail.com",
+        "r_email_domain": "",
+        "channel": "in_person",
+        "risk_score": 0.2,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3510711",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 13373583,
+        "ts": "2016-12-03 18:53:03",
+        "amount": 42.95,
+        "product_cd": "W",
+        "addr1": "191.0",
+        "addr2": "87.0",
+        "dist1": 23,
+        "dist2": 0,
+        "p_email_domain": "gmail.com",
+        "r_email_domain": "",
+        "channel": "in_person",
+        "risk_score": 0.15,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3517247",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 13556001,
+        "ts": "2016-12-05 21:33:21",
+        "amount": 35.96,
+        "product_cd": "W",
+        "addr1": "191.0",
+        "addr2": "87.0",
+        "dist1": 23,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "",
+        "channel": "in_person",
+        "risk_score": 0.12,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3524718",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 13789968,
+        "ts": "2016-12-08 14:32:48",
+        "amount": 25.95,
+        "product_cd": "W",
+        "addr1": "272.0",
+        "addr2": "87.0",
+        "dist1": 8,
+        "dist2": 0,
+        "p_email_domain": "gmail.com",
+        "r_email_domain": "",
+        "channel": "in_person",
+        "risk_score": 0.28,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3536091",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 14133958,
+        "ts": "2016-12-12 14:05:58",
+        "amount": 31.02,
+        "product_cd": "W",
+        "addr1": "272.0",
+        "addr2": "87.0",
+        "dist1": 8,
+        "dist2": 0,
+        "p_email_domain": "gmail.com",
+        "r_email_domain": "",
+        "channel": "in_person",
+        "risk_score": 0.01,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3537024",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 14153007,
+        "ts": "2016-12-12 19:23:27",
+        "amount": 35.91,
+        "product_cd": "W",
+        "addr1": "191.0",
+        "addr2": "87.0",
+        "dist1": 23,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "",
+        "channel": "in_person",
+        "risk_score": 0.22,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3551004",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 14569015,
+        "ts": "2016-12-17 14:56:55",
+        "amount": 20.98,
+        "product_cd": "W",
+        "addr1": "272.0",
+        "addr2": "87.0",
+        "dist1": 8,
+        "dist2": 0,
+        "p_email_domain": "gmail.com",
+        "r_email_domain": "",
+        "channel": "in_person",
+        "risk_score": 0.11,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3558767",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 14782579,
+        "ts": "2016-12-20 02:16:19",
+        "amount": 48.03,
+        "product_cd": "W",
+        "addr1": "191.0",
+        "addr2": "87.0",
+        "dist1": 23,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "",
+        "channel": "in_person",
+        "risk_score": 0.1,
+        "raw_features_json": ""
+      }
+    },
+    {
+      "v_id": "3578937",
+      "v_type": "Transaction",
+      "attributes": {
+        "transaction_dt": 15432189,
+        "ts": "2016-12-27 14:43:09",
+        "amount": 57.89,
+        "product_cd": "W",
+        "addr1": "191.0",
+        "addr2": "87.0",
+        "dist1": 0,
+        "dist2": 0,
+        "p_email_domain": "",
+        "r_email_domain": "",
+        "channel": "in_person",
+        "risk_score": 0.2,
+        "raw_features_json": ""
+      }
+    }
+  ],
+  "device": {
+    "v_id": "mobile|SM-G935F Build/NRD90M|Android 7.0",
+    "v_type": "DeviceProfile",
+    "attributes": {
+      "device_type": "mobile",
+      "device_info": "SM-G935F Build/NRD90M",
+      "os": "Android 7.0",
+      "browser": "chrome 62.0 for android",
+      "screen_resolution": "1920x1080",
+      "proxy_type": "IP_PROXY:ANONYMOUS",
+      "device_status": ""
+    }
+  },
+  "device_neighbors": [
+    {
+      "v_id": "DRV::C13487::13250::555.0::150.0::mastercard::117.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C04570",
+        "card_network": "mastercard",
+        "card_type": "debit",
+        "issuer": "117.0"
+      }
+    }
+  ],
+  "fraud_cases_on_device": [
+    {
+      "v_id": "AGENT-HHG-014",
+      "v_type": "ClosedCase",
+      "attributes": {
+        "customer_id": "C13487",
+        "card_id": "C13487-K1",
+        "opened_at": "2016-11-22 20:11:00",
+        "closed_at": "2026-09-24 16:22:30",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_fraud",
+        "first_fraud_txn_id": "3478561",
+        "n_txns": 1,
+        "exposure_usd": 74.96,
+        "actions_taken": "BLOCK_CARD|FILE_REPORT|MONITOR_CONNECTED_CARDS|GENERATE_REPORT|CREATE_CASE",
+        "report_filed": "True",
+        "analyst_notes": "The flagged online purchase of $74.96 was made from a proxy mobile device, a pattern previously confirmed as fraud on the same card (AGENT-HHG-014). The card\u2019s history consists almost entirely of low\u2011value in\u2011person purchases, making this online activity anomalous. Multiple other cards share the same region and email domain, reinforcing a coordinated abuse scenario. Fraud probability is high (0.92) supported by prior confirmed cases and device anomalies."
+      }
+    }
+  ],
+  "customer_prior_cases": [
+    {
+      "v_id": "AGENT-HHG-014",
+      "v_type": "ClosedCase",
+      "attributes": {
+        "customer_id": "C13487",
+        "card_id": "C13487-K1",
+        "opened_at": "2016-11-22 20:11:00",
+        "closed_at": "2026-09-24 16:22:30",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_fraud",
+        "first_fraud_txn_id": "3478561",
+        "n_txns": 1,
+        "exposure_usd": 74.96,
+        "actions_taken": "BLOCK_CARD|FILE_REPORT|MONITOR_CONNECTED_CARDS|GENERATE_REPORT|CREATE_CASE",
+        "report_filed": "True",
+        "analyst_notes": "The flagged online purchase of $74.96 was made from a proxy mobile device, a pattern previously confirmed as fraud on the same card (AGENT-HHG-014). The card\u2019s history consists almost entirely of low\u2011value in\u2011person purchases, making this online activity anomalous. Multiple other cards share the same region and email domain, reinforcing a coordinated abuse scenario. Fraud probability is high (0.92) supported by prior confirmed cases and device anomalies."
+      }
+    }
+  ],
+  "prior_cases": [
+    {
+      "v_id": "AGENT-HHG-014",
+      "v_type": "ClosedCase",
+      "attributes": {
+        "customer_id": "C13487",
+        "card_id": "C13487-K1",
+        "opened_at": "2016-11-22 20:11:00",
+        "closed_at": "2026-09-24 16:22:30",
+        "outcome": "confirmed_fraud",
+        "pattern": "card_not_present_fraud",
+        "first_fraud_txn_id": "3478561",
+        "n_txns": 1,
+        "exposure_usd": 74.96,
+        "actions_taken": "BLOCK_CARD|FILE_REPORT|MONITOR_CONNECTED_CARDS|GENERATE_REPORT|CREATE_CASE",
+        "report_filed": "True",
+        "analyst_notes": "The flagged online purchase of $74.96 was made from a proxy mobile device, a pattern previously confirmed as fraud on the same card (AGENT-HHG-014). The card\u2019s history consists almost entirely of low\u2011value in\u2011person purchases, making this online activity anomalous. Multiple other cards share the same region and email domain, reinforcing a coordinated abuse scenario. Fraud probability is high (0.92) supported by prior confirmed cases and device anomalies."
+      }
+    }
+  ],
+  "region_neighbor_cards": [
+    {
+      "v_id": "DRV::C09933::15868::490.0::150.0::visa::226.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C07297",
+        "card_network": "visa",
+        "card_type": "debit",
+        "issuer": "226.0"
+      }
+    },
+    {
+      "v_id": "DRV::C07297::13729::455.0::150.0::mastercard::166.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C07297",
+        "card_network": "mastercard",
+        "card_type": "debit",
+        "issuer": "166.0"
+      }
+    },
+    {
+      "v_id": "DRV::C02354::19248::490.0::150.0::visa::226.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C07297",
+        "card_network": "visa",
+        "card_type": "debit",
+        "issuer": "226.0"
+      }
+    },
+    {
+      "v_id": "DRV::C05876::12947::428.0::150.0::visa::166.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C07297",
+        "card_network": "visa",
+        "card_type": "debit",
+        "issuer": "166.0"
+      }
+    },
+    {
+      "v_id": "DRV::C13487::13250::555.0::150.0::mastercard::117.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C04570",
+        "card_network": "mastercard",
+        "card_type": "debit",
+        "issuer": "117.0"
+      }
+    },
+    {
+      "v_id": "DRV::C07671::22756::452.0::150.0::mastercard::117.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C07297",
+        "card_network": "mastercard",
+        "card_type": "debit",
+        "issuer": "117.0"
+      }
+    },
+    {
+      "v_id": "DRV::C08623::19739::470.0::150.0::mastercard::137.0::credit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C12265",
+        "card_network": "mastercard",
+        "card_type": "credit",
+        "issuer": "137.0"
+      }
+    },
+    {
+      "v_id": "DRV::C07297::13729::455.0::150.0::mastercard::126.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C02923",
+        "card_network": "mastercard",
+        "card_type": "debit",
+        "issuer": "126.0"
+      }
+    },
+    {
+      "v_id": "DRV::C12382::21139::242.0::150.0::visa::166.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C02923",
+        "card_network": "visa",
+        "card_type": "debit",
+        "issuer": "166.0"
+      }
+    }
+  ],
+  "email_neighbor_cards": [
+    {
+      "v_id": "DRV::C09933::15868::490.0::150.0::visa::226.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C07297",
+        "card_network": "visa",
+        "card_type": "debit",
+        "issuer": "226.0"
+      }
+    },
+    {
+      "v_id": "DRV::C11923::21363::545.0::185.0::visa::138.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C07297",
+        "card_network": "visa",
+        "card_type": "debit",
+        "issuer": "138.0"
+      }
+    },
+    {
+      "v_id": "DRV::C07297::13729::455.0::150.0::mastercard::166.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C07297",
+        "card_network": "mastercard",
+        "card_type": "debit",
+        "issuer": "166.0"
+      }
+    },
+    {
+      "v_id": "DRV::C07987::11539::583.0::150.0::visa::226.0::credit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C07297",
+        "card_network": "visa",
+        "card_type": "credit",
+        "issuer": "226.0"
+      }
+    },
+    {
+      "v_id": "DRV::C05876::12947::::::::::",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C02923",
+        "card_network": "",
+        "card_type": "",
+        "issuer": ""
+      }
+    },
+    {
+      "v_id": "DRV::C02354::19248::490.0::150.0::visa::226.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C07297",
+        "card_network": "visa",
+        "card_type": "debit",
+        "issuer": "226.0"
+      }
+    },
+    {
+      "v_id": "DRV::C10434::17379::258.0::150.0::visa::226.0::credit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C02923",
+        "card_network": "visa",
+        "card_type": "credit",
+        "issuer": "226.0"
+      }
+    },
+    {
+      "v_id": "DRV::C05876::12947::428.0::150.0::visa::166.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C07297",
+        "card_network": "visa",
+        "card_type": "debit",
+        "issuer": "166.0"
+      }
+    },
+    {
+      "v_id": "DRV::C08623::19739::::::::::",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C08623",
+        "card_network": "",
+        "card_type": "",
+        "issuer": ""
+      }
+    },
+    {
+      "v_id": "DRV::C13487::13250::555.0::150.0::mastercard::117.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C04570",
+        "card_network": "mastercard",
+        "card_type": "debit",
+        "issuer": "117.0"
+      }
+    },
+    {
+      "v_id": "DRV::C07671::22756::452.0::150.0::mastercard::117.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C07297",
+        "card_network": "mastercard",
+        "card_type": "debit",
+        "issuer": "117.0"
+      }
+    },
+    {
+      "v_id": "DRV::C08623::19739::470.0::150.0::mastercard::137.0::credit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C12265",
+        "card_network": "mastercard",
+        "card_type": "credit",
+        "issuer": "137.0"
+      }
+    },
+    {
+      "v_id": "DRV::C02354::19248::::::::::",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C02354",
+        "card_network": "",
+        "card_type": "",
+        "issuer": ""
+      }
+    },
+    {
+      "v_id": "DRV::C02923::22606::507.0::150.0::visa::226.0::credit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C07297",
+        "card_network": "visa",
+        "card_type": "credit",
+        "issuer": "226.0"
+      }
+    },
+    {
+      "v_id": "DRV::C12382::21139::242.0::150.0::visa::166.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C02923",
+        "card_network": "visa",
+        "card_type": "debit",
+        "issuer": "166.0"
+      }
+    },
+    {
+      "v_id": "DRV::C03042::15158::562.0::150.0::mastercard::219.0::credit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C07297",
+        "card_network": "mastercard",
+        "card_type": "credit",
+        "issuer": "219.0"
+      }
+    },
+    {
+      "v_id": "DRV::C12265::10010::116.0::150.0::visa::226.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C12265",
+        "card_network": "visa",
+        "card_type": "debit",
+        "issuer": "226.0"
+      }
+    },
+    {
+      "v_id": "DRV::C13171::10114::545.0::185.0::visa::102.0::credit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C09988",
+        "card_network": "visa",
+        "card_type": "credit",
+        "issuer": "102.0"
+      }
+    },
+    {
+      "v_id": "DRV::C09988::11242::228.0::106.0::visa::226.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C07671",
+        "card_network": "visa",
+        "card_type": "debit",
+        "issuer": "226.0"
+      }
+    },
+    {
+      "v_id": "DRV::C07297::13729::455.0::150.0::mastercard::126.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C02923",
+        "card_network": "mastercard",
+        "card_type": "debit",
+        "issuer": "126.0"
+      }
+    },
+    {
+      "v_id": "DRV::C09933::15868::::::::::",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C09933",
+        "card_network": "",
+        "card_type": "",
+        "issuer": ""
+      }
+    },
+    {
+      "v_id": "DRV::C08106::21429::545.0::185.0::visa::138.0::debit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C09988",
+        "card_network": "visa",
+        "card_type": "debit",
+        "issuer": "138.0"
+      }
+    },
+    {
+      "v_id": "DRV::C04570::20749::583.0::150.0::mastercard::135.0::credit",
+      "v_type": "Card",
+      "attributes": {
+        "customer_id": "C12265",
+        "card_network": "mastercard",
+        "card_type": "credit",
+        "issuer": "135.0"
+      }
+    }
+  ],
+  "_tool_calls": 1
+}

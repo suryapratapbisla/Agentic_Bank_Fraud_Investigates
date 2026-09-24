@@ -1,0 +1,101 @@
+{
+  "case_id": "HHG-007",
+  "case": {
+    "status": "closed_fraud",
+    "verdict": "fraud",
+    "fraud_probability": 0.92,
+    "pattern": "account_takeover",
+    "pattern_description": "Multiple prior confirmed fraud cases for this card and customer, rapid burst of in\u2011person purchases across regions, consistent with account takeover.",
+    "affected_txn_ids": [
+      "3514948"
+    ],
+    "first_suspicious_txn_id": "3514948",
+    "connected_card_ids": [],
+    "connected_device_profiles": [],
+    "exposure_usd": 111.92,
+    "evidence": [
+      {
+        "claim": "High model risk score 0.87 for txn 3514948",
+        "source": "graph",
+        "ref": "graph:transaction(3514948)",
+        "entity_ids": [
+          "3514948"
+        ]
+      },
+      {
+        "claim": "Prior confirmed fraud cases (AGENT-HHG-007, CC-5521, CC-5092, CC-4787) indicate account takeover pattern",
+        "source": "document",
+        "ref": "document:prior_cases",
+        "entity_ids": [
+          "AGENT-HHG-007",
+          "CC-5521",
+          "CC-5092",
+          "CC-4787"
+        ]
+      },
+      {
+        "claim": "Burst of in\u2011person transactions in short time window suggests compromised card",
+        "source": "graph",
+        "ref": "graph:txn_history",
+        "entity_ids": [
+          "3514335",
+          "3514573",
+          "3514948",
+          "3515001",
+          "3515045",
+          "3515193",
+          "3515709",
+          "3515752",
+          "3515777",
+          "3515982",
+          "3516208",
+          "3516823",
+          "3516828",
+          "3516867",
+          "3517307",
+          "3517314",
+          "3517460",
+          "3517968"
+        ]
+      }
+    ],
+    "similar_prior_cases": [
+      "AGENT-HHG-007",
+      "CC-5521",
+      "CC-5092",
+      "CC-4787"
+    ],
+    "summary": "The flagged in\u2011person purchase of $111.92 has a high model risk score (0.87). The cardholder has four prior confirmed fraud cases, all classified as account takeover or out\u2011of\u2011region use, indicating a compromised account. The rapid sequence of purchases further supports an account\u2011takeover scenario. Fraud probability is assessed at 0.92, leading to a fraud verdict.",
+    "written_to_graph": true,
+    "graph_case_id": "AGENT-HHG-007"
+  },
+  "evidence_requests": [],
+  "next_best_actions": {
+    "initial": [],
+    "final": [
+      {
+        "action": "BLOCK_CARD",
+        "route": "L1",
+        "reason": "High fraud probability confirmed by risk score and multiple prior confirmed fraud cases (policy decision)"
+      },
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "R2: fraud investigation case opened"
+      }
+    ],
+    "what_changed": "blocked the compromised card"
+  },
+  "sar": {
+    "file": false,
+    "reason": "Exposure $111.92 below $1,000 and no connected cards; filing not required per policy",
+    "narrative": "",
+    "subjects": [],
+    "total_amount_usd": 0.0,
+    "activity_dates": []
+  },
+  "stop_reason": "Fraud probability 0.92 >=0.85 with multiple independent evidences (risk score, prior cases) triggers stop",
+  "tool_calls": 14,
+  "tokens": 6545,
+  "latency_s": 42.72
+}

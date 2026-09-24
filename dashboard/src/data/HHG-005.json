@@ -1,0 +1,126 @@
+{
+  "case_id": "HHG-005",
+  "case": {
+    "status": "closed_fraud",
+    "verdict": "fraud",
+    "fraud_probability": 0.78,
+    "pattern": "account_takeover",
+    "pattern_description": "Multiple confirmed fraud cases for this customer and device, with an atypical online purchase differing from the card's in-person history, indicating account takeover.",
+    "affected_txn_ids": [
+      "3523199"
+    ],
+    "first_suspicious_txn_id": "3523199",
+    "connected_card_ids": [
+      "DRV::C07987::11539::583.0::150.0::visa::226.0::credit",
+      "DRV::C02354::19248::490.0::150.0::visa::226.0::debit",
+      "DRV::C08299::13026::216.0::150.0::visa::226.0::credit",
+      "DRV::C05876::12947::::::::::",
+      "DRV::C10434::17379::258.0::150.0::visa::226.0::credit",
+      "DRV::C05876::12947::428.0::150.0::visa::166.0::debit",
+      "DRV::C08623::19739::470.0::150.0::mastercard::137.0::credit",
+      "DRV::C03042::15158::562.0::150.0::mastercard::219.0::credit",
+      "DRV::C12382::21139::242.0::150.0::visa::166.0::debit",
+      "DRV::C07297::13729::455.0::150.0::mastercard::126.0::debit"
+    ],
+    "connected_device_profiles": [
+      "iOS Device | iOS 9.3.5 | mobile safari 9.0"
+    ],
+    "exposure_usd": 100.07,
+    "evidence": [
+      {
+        "claim": "Online transaction atypical for card; prior confirmed fraud cases on same customer and device indicate account takeover.",
+        "source": "graph",
+        "ref": "query:device_profile(C02923-K1)",
+        "entity_ids": [
+          "C02923-K1"
+        ]
+      },
+      {
+        "claim": "Same device hosts multiple other cards sharing region and email domain.",
+        "source": "graph",
+        "ref": "query:other_cards_same_device(C02923-K1)",
+        "entity_ids": [
+          "C07987",
+          "C02354",
+          "C08299"
+        ]
+      },
+      {
+        "claim": "Three prior closed cases on this customer confirmed account takeover fraud.",
+        "source": "graph",
+        "ref": "query:prior_closed_cases(C02923)",
+        "entity_ids": [
+          "AGENT-HHG-005",
+          "CC-2857",
+          "CC-2717",
+          "CC-2400"
+        ]
+      }
+    ],
+    "similar_prior_cases": [
+      "AGENT-HHG-005",
+      "CC-2857",
+      "CC-2717",
+      "CC-2400"
+    ],
+    "summary": "The flagged online purchase of $100.07 deviates from the cardholder's usual in-person spending pattern. The customer and device have a history of confirmed account-takeover fraud across multiple cases. Combined with the presence of several other cards on the same device, the activity strongly suggests fraud.",
+    "written_to_graph": true,
+    "graph_case_id": "AGENT-HHG-005"
+  },
+  "evidence_requests": [],
+  "next_best_actions": {
+    "initial": [
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "R6: Same device/region/email across multiple cards triggers case creation"
+      }
+    ],
+    "final": [
+      {
+        "action": "BLOCK_CARD",
+        "route": "L1",
+        "reason": "R6: Strong fraud evidence and exposure <= $2,500"
+      },
+      {
+        "action": "DECLINE_TRANSACTION",
+        "route": "L1",
+        "reason": "R6: Transaction should be declined due to fraud suspicion"
+      },
+      {
+        "action": "FILE_REPORT",
+        "route": "L2",
+        "reason": "R6: Connected cards on same device require SAR filing"
+      },
+      {
+        "action": "MONITOR_CONNECTED_CARDS",
+        "route": "auto",
+        "reason": "R6: Ongoing monitoring of related cards"
+      },
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "R2: fraud investigation case opened"
+      }
+    ],
+    "what_changed": "Actions added based on pattern R6 and high fraud probability"
+  },
+  "sar": {
+    "file": true,
+    "reason": "FILE_REPORT required per R6 because connected cards on same device and strong fraud suspicion",
+    "narrative": "Customer C02923 performed an online purchase inconsistent with historical behavior. Prior confirmed account-takeover cases on the same customer and device, plus multiple other cards sharing the device, indicate coordinated fraud. Exposure for this case is $100.07.",
+    "subjects": [
+      "C02923",
+      "C02923-K1"
+    ],
+    "total_amount_usd": 100.07,
+    "activity_dates": [
+      "2016-12-07",
+      "2016-12-07"
+    ]
+  },
+  "stop_reason": "Fraud probability >=0.70 with strong supporting evidence and policy rules satisfied",
+  "tool_calls": 7,
+  "tokens": 5622,
+  "latency_s": 134.9
+}

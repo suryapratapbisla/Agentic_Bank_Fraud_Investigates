@@ -1,0 +1,132 @@
+{
+  "case_id": "HHG-006",
+  "case": {
+    "status": "closed_fraud",
+    "verdict": "fraud",
+    "fraud_probability": 0.92,
+    "pattern": "card_not_present_fraud",
+    "pattern_description": "Three high-value online purchases within 20\u202fminutes from a proxy desktop device, inconsistent with the card\u2019s usual low-value in-person usage.",
+    "affected_txn_ids": [
+      "3476633",
+      "3476665",
+      "3476682"
+    ],
+    "first_suspicious_txn_id": "3476682",
+    "connected_card_ids": [
+      "DRV::C09933::15868::490.0::150.0::visa::226.0::debit",
+      "DRV::C07987::11539::583.0::150.0::visa::226.0::credit",
+      "DRV::C02354::19248::490.0::150.0::visa::226.0::debit",
+      "DRV::C05876::12947::428.0::150.0::visa::166.0::debit",
+      "DRV::C08299::13026::216.0::150.0::visa::226.0::credit",
+      "DRV::C07671::22756::452.0::150.0::mastercard::117.0::debit",
+      "DRV::C03042::15158::562.0::150.0::mastercard::219.0::credit",
+      "DRV::C02923::22606::507.0::150.0::visa::226.0::credit",
+      "DRV::C11923::21363::545.0::185.0::visa::138.0::debit",
+      "DRV::C07297::13729::455.0::150.0::mastercard::166.0::debit"
+    ],
+    "connected_device_profiles": [
+      "Trident/7.0 | Windows 7 | ie 11.0 for desktop"
+    ],
+    "exposure_usd": 1427.12,
+    "evidence": [
+      {
+        "claim": "Customer reports unauthorized $482.12 purchase",
+        "source": "customer",
+        "ref": "document:trigger_text",
+        "entity_ids": []
+      },
+      {
+        "claim": "Three high-value online transactions (456.96, 488.04, 482.12) within 20\u202fminutes",
+        "source": "graph",
+        "ref": "graph:card_transaction_history",
+        "entity_ids": [
+          "3476633",
+          "3476665",
+          "3476682"
+        ]
+      },
+      {
+        "claim": "Device is a proxy anonymous desktop",
+        "source": "graph",
+        "ref": "graph:device_profile",
+        "entity_ids": []
+      },
+      {
+        "claim": "Prior confirmed fraud case AGENT-HHG-006 on same card and device",
+        "source": "graph",
+        "ref": "graph:prior_closed_cases",
+        "entity_ids": []
+      },
+      {
+        "claim": "Other cards share the same device",
+        "source": "graph",
+        "ref": "graph:other_cards_same_device",
+        "entity_ids": [
+          "C09933",
+          "C07987",
+          "C02354",
+          "C05876",
+          "C08299",
+          "C07671"
+        ]
+      }
+    ],
+    "similar_prior_cases": [
+      "AGENT-HHG-006",
+      "CC-0454"
+    ],
+    "summary": "The card C07297-K1, normally used for low-value in-person purchases, was used for three high-value online transactions within a 20-minute window from a proxy desktop device. The customer denied the last transaction. Prior confirmed fraud on the same card/device (AGENT-HHG-006) shows the same pattern of card-not-present fraud. Multiple cards share this device, indicating broader abuse. Evidence strongly supports fraud.",
+    "written_to_graph": true,
+    "graph_case_id": "AGENT-HHG-006"
+  },
+  "evidence_requests": [],
+  "next_best_actions": {
+    "initial": [
+      {
+        "action": "BLOCK_CARD",
+        "route": "L1",
+        "reason": "R2: Customer denies transaction"
+      }
+    ],
+    "final": [
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "R2: Customer denies transaction"
+      },
+      {
+        "action": "FILE_REPORT",
+        "route": "L2",
+        "reason": "R2: exposure > $1000 triggers filing"
+      },
+      {
+        "action": "MONITOR_CONNECTED_CARDS",
+        "route": "auto",
+        "reason": "R6: Same device across multiple cards"
+      },
+      {
+        "action": "BLOCK_CARD",
+        "route": "L1",
+        "reason": "R2: confirmed or suspected unauthorized use"
+      }
+    ],
+    "what_changed": "Added case creation, filed SAR, and began monitoring connected cards after initial block."
+  },
+  "sar": {
+    "file": true,
+    "reason": "Exposure $1427.12 exceeds $1000 threshold per policy R2",
+    "narrative": "Multiple high-value online purchases from a proxy desktop device on a card normally used for in-person transactions, with prior confirmed fraud on the same card/device.",
+    "subjects": [
+      "C07297-K1"
+    ],
+    "total_amount_usd": 1427.12,
+    "activity_dates": [
+      "2016-11-21",
+      "2016-11-21"
+    ]
+  },
+  "stop_reason": "Fraud probability >=0.85 with multiple supporting evidences",
+  "tool_calls": 6,
+  "tokens": 6723,
+  "latency_s": 45.13
+}

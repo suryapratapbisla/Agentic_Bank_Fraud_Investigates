@@ -1,0 +1,64 @@
+// ============================================================
+// Pattern and ring queries used during an investigation.
+// ============================================================
+
+USE GRAPH FraudInvestigationGraph
+
+CREATE OR REPLACE QUERY get_device_neighbors(STRING transaction_id) FOR GRAPH FraudInvestigationGraph {
+    Vertex txn;
+    txn = to_vertex(transaction_id, "Transaction");
+    start = {txn};
+
+    devices = SELECT d FROM start:t -(FROM_DEVICE)-> DeviceProfile:d;
+    device_txns = SELECT tx FROM devices:d -(reverse_FROM_DEVICE)-> Transaction:tx;
+    other_cards = SELECT k FROM device_txns:tx -(reverse_MADE)-> Card:k;
+
+    PRINT devices, other_cards, device_txns;
+}
+
+CREATE OR REPLACE QUERY get_region_neighbors(STRING transaction_id) FOR GRAPH FraudInvestigationGraph {
+    Vertex txn;
+    txn = to_vertex(transaction_id, "Transaction");
+    start = {txn};
+
+    regions = SELECT r FROM start:t -(BILLED_IN)-> BillingRegion:r;
+    region_txns = SELECT tx FROM regions:r -(reverse_BILLED_IN)-> Transaction:tx;
+    other_cards = SELECT k FROM region_txns:tx -(reverse_MADE)-> Card:k;
+
+    PRINT regions, other_cards, region_txns;
+}
+
+CREATE OR REPLACE QUERY detect_card_testing(
+    STRING card_id,
+    DOUBLE small_amt=5.0,
+    INT min_small=3
+) FOR GRAPH FraudInvestigationGraph {
+    Vertex card;
+    card = to_vertex(card_id, "Card");
+    cards = {card};
+    small_txns = SELECT t FROM cards:k -(MADE)-> Transaction:t
+                 WHERE t.channel == "online" AND t.amount < small_amt;
+    chain = SELECT nxt FROM small_txns:s -(NEXT:e)-> Transaction:nxt
+            WHERE nxt.channel == "online";
+    PRINT small_txns, chain;
+}
+
+CREATE OR REPLACE QUERY detect_out_of_region(STRING card_id) FOR GRAPH FraudInvestigationGraph {
+    MapAccum<STRING, INT> @@region_counts;
+
+    Vertex card;
+    card = to_vertex(card_id, "Card");
+    cards = {card};
+    txns = SELECT t FROM cards:k -(MADE)-> Transaction:t
+           ACCUM @@region_counts += (t.addr1 -> 1);
+
+    PRINT txns, @@region_counts;
+}
+
+CREATE OR REPLACE QUERY compute_exposure(SET<STRING> txn_ids) FOR GRAPH FraudInvestigationGraph {
+    SumAccum<DOUBLE> @@exposure;
+    txns = to_vertex_set(txn_ids, "Transaction");
+    result = SELECT t FROM txns:t
+             ACCUM @@exposure += t.amount;
+    PRINT result, @@exposure AS exposure_usd;
+}

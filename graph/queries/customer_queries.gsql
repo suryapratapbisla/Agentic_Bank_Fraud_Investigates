@@ -1,0 +1,49 @@
+// ============================================================
+// Customer lookups and post-load aggregates.
+// After loading, run: INSTALL QUERY refresh_customer_stats
+// then RUN QUERY refresh_customer_stats()
+// ============================================================
+
+USE GRAPH FraudInvestigationGraph
+
+CREATE OR REPLACE QUERY refresh_customer_stats() FOR GRAPH FraudInvestigationGraph {
+    SumAccum<INT> @card_count;
+    SumAccum<INT> @@updated;
+
+    customers = {Customer.*};
+    customers = SELECT c
+        FROM customers:c -(OWNS)-> Card:k
+        ACCUM c.@card_count += 1
+        POST-ACCUM
+            c.total_cards = c.@card_count;
+            @@updated += 1;
+
+    PRINT @@updated AS customers_updated;
+}
+
+CREATE OR REPLACE QUERY get_customer_profile(STRING customer_id) FOR GRAPH FraudInvestigationGraph {
+    Vertex customer;
+    customer = to_vertex(customer_id, "Customer");
+    customers = {customer};
+    cards = SELECT k FROM customers:c -(OWNS)-> Card:k;
+    PRINT customers, cards;
+}
+
+CREATE OR REPLACE QUERY get_customer_cards(STRING customer_id) FOR GRAPH FraudInvestigationGraph {
+    Vertex customer;
+    customer = to_vertex(customer_id, "Customer");
+    customers = {customer};
+    result = SELECT k FROM customers:c -(OWNS)-> Card:k;
+    PRINT result;
+}
+
+CREATE OR REPLACE QUERY get_customer_txn_history(STRING customer_id) FOR GRAPH FraudInvestigationGraph {
+    Vertex customer;
+    customer = to_vertex(customer_id, "Customer");
+    customers = {customer};
+    cards = SELECT k FROM customers:c -(OWNS)-> Card:k;
+    txns = SELECT t
+           FROM cards:k -(MADE)-> Transaction:t
+           ORDER BY t.ts ASC;
+    PRINT txns;
+}

@@ -1,0 +1,36 @@
+// ============================================================
+// Case memory retrieval queries (graph + vector).
+// ============================================================
+
+USE GRAPH FraudInvestigationGraph
+
+CREATE OR REPLACE QUERY search_case_memory(
+    LIST<FLOAT> query_vec,
+    INT top_k = 10
+) FOR GRAPH FraudInvestigationGraph SYNTAX v3 {
+    MapAccum<VERTEX, FLOAT> @@distances;
+    results = vectorSearch(
+        {CaseMemory.summary_embedding},
+        query_vec,
+        top_k,
+        {distance_map: @@distances}
+    );
+    PRINT results, @@distances AS distances;
+}
+
+CREATE OR REPLACE QUERY get_case_memory(STRING case_id) FOR GRAPH FraudInvestigationGraph {
+    Vertex mem;
+    mem = to_vertex(case_id, "CaseMemory");
+    memories = {mem};
+    linked = SELECT c FROM memories:m -(MEMORY_OF)-> ClosedCase:c;
+    PRINT memories, linked;
+}
+
+CREATE OR REPLACE QUERY cases_by_customer(STRING customer_id, INT k = 10) FOR GRAPH FraudInvestigationGraph {
+    memories = SELECT m
+               FROM CaseMemory:m
+               WHERE m.customer_id == customer_id
+               ORDER BY m.closed_at DESC
+               LIMIT k;
+    PRINT memories;
+}

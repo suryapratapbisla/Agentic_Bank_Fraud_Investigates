@@ -1,0 +1,52 @@
+// ============================================================
+// Entity: Transaction only.
+//
+// Source:
+//   DATA/filtered_data/transactions_with_identity_filtered.csv
+//
+// Uses derived_card_id from Scripts/Case_data.py to create full
+// Card -[:MADE]-> Transaction history for every kept row.
+//
+// Empty dist1/dist2/risk_score are left as raw tokens.
+// If loader rejects those lines, inspect SHOW LOADING STATUS ALL.
+//
+// Install:
+//   gsql loading/load_transactions.gsql
+//
+// Run from graph/:
+//   RUN LOADING JOB load_transactions USING \
+//     f_txns="../DATA/filtered_data/transactions_with_identity_filtered.csv"
+//   SHOW LOADING STATUS ALL
+// ============================================================
+
+USE GRAPH FraudInvestigationGraph
+
+CREATE LOADING JOB load_transactions FOR GRAPH FraudInvestigationGraph {
+    DEFINE FILENAME f_txns = "/tmp/agentic_deploy/DATA/filtered_data/transactions_with_identity_filtered.csv";
+
+    LOAD f_txns
+        TO VERTEX Transaction VALUES (
+            $"TransactionID",
+            $"TransactionDT",
+            $"ts",
+            $"TransactionAmt",
+            $"ProductCD",
+            $"addr1",
+            $"addr2",
+            $"dist1",
+            $"dist2",
+            $"P_emaildomain",
+            $"R_emaildomain",
+            $"channel",
+            $"risk_score",
+            ""
+        )
+        WHERE $"TransactionID" != "" AND $"ts" != ""
+        USING HEADER="true", SEPARATOR=",", QUOTE="double";
+    LOAD f_txns
+        TO EDGE MADE VALUES ($"derived_card_id", $"TransactionID")
+        WHERE $"derived_card_id" != "" AND $"TransactionID" != ""
+        USING HEADER="true", SEPARATOR=",", QUOTE="double";
+}
+
+// RUN LOADING JOB load_transactions USING f_txns="../DATA/filtered_data/transactions_with_identity_filtered.csv"

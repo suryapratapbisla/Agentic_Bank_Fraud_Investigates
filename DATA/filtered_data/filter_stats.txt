@@ -1,0 +1,16 @@
+case_pack.csv: 20 cases
+closed_cases_history.csv: 5565 closed cases
+DEV_MODE: True
+Unique customers in case_pack: 20
+Total unique customers to keep: 20
+Explicit flagged txn ids (case pack): 20
+
+Streaming X:\Scripts\..\DATA\transactions.csv in chunks of 50,000 rows...
+Done streaming. Kept 26,643 of 590,742 total transactions (4.5%).
+Derived card ids from customer_id+card1..card6: 30 unique
+Merged with identity.csv: 26,643 rows total, 11,595 have an identity/device record (online channel).
+
+Wrote: X:\Scripts\..\DATA\filtered_data\transactions_with_identity_filtered.csv
+Wrote closed_cases_history.csv with ext_card_id/ext_connected_card_ids into X:\Scripts\..\DATA\filtered_data/.
+
+NOTE: DEV_MODE is on — only the 20 case-pack customers are in the filtered transactions file. Cross-customer links (e.g. a device shared with a customer outside those 20) won't be visible until you set DEV_MODE = False or load the full transactions.csv.

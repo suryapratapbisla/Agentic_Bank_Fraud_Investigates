@@ -1,0 +1,89 @@
+// ============================================================
+// Agent evidence bundle query.
+// Install this before running the Python agent:
+//   gsql queries/agent_evidence_queries.gsql
+//   INSTALL QUERY get_evidence_bundle
+// ============================================================
+
+USE GRAPH FraudInvestigationGraph
+
+CREATE OR REPLACE QUERY get_evidence_bundle(
+    STRING flagged_txn_id,
+    STRING customer_id,
+    INT card_txn_limit = 100
+) FOR GRAPH FraudInvestigationGraph {
+    Vertex flagged_txn;
+    flagged_txn = to_vertex(flagged_txn_id, "Transaction");
+    start = {flagged_txn};
+
+    owner_cards = SELECT c
+                  FROM start:t -(reverse_MADE)-> Card:c;
+
+    // Window around flagged transaction (before + after), always includes flagged txn.
+    MaxAccum<DATETIME> @@flagged_ts;
+    flagged_rows = SELECT t FROM start:t ACCUM @@flagged_ts += t.ts;
+
+    INT before_limit = card_txn_limit / 2;
+    INT after_limit = card_txn_limit - before_limit;
+
+    tx_before = SELECT tx
+                FROM owner_cards:c -(MADE)-> Transaction:tx
+                WHERE tx.ts <= @@flagged_ts
+                ORDER BY tx.ts DESC
+                LIMIT before_limit;
+
+    tx_after = SELECT tx
+               FROM owner_cards:c -(MADE)-> Transaction:tx
+               WHERE tx.ts > @@flagged_ts
+               ORDER BY tx.ts ASC
+               LIMIT after_limit;
+
+    device = SELECT d
+             FROM start:t -(FROM_DEVICE)-> DeviceProfile:d;
+
+    device_txns = SELECT tx
+                  FROM device:d -(reverse_FROM_DEVICE)-> Transaction:tx;
+    device_neighbors = SELECT c
+                       FROM device_txns:tx -(reverse_MADE)-> Card:c;
+
+    device_fraud_txns = SELECT tx
+                        FROM device:d -(reverse_FROM_DEVICE)-> Transaction:tx;
+    device_fraud_cases = SELECT cc
+                         FROM device_fraud_txns:tx -(reverse_INVOLVES)-> ClosedCase:cc
+                         WHERE cc.outcome == "confirmed_fraud";
+    fraud_cases_on_device = SELECT cc
+                            FROM device_fraud_cases:cc
+                            ORDER BY cc.closed_at DESC
+                            LIMIT 20;
+
+    customer_prior_cases = SELECT cc
+                           FROM ClosedCase:cc
+                           WHERE cc.customer_id == customer_id
+                           ORDER BY cc.closed_at DESC
+                           LIMIT 10;
+
+    billing_region = SELECT r
+                       FROM start:t -(BILLED_IN)-> BillingRegion:r;
+    region_txns = SELECT tx
+                  FROM billing_region:r -(reverse_BILLED_IN)-> Transaction:tx;
+    region_neighbor_cards = SELECT c
+                            FROM region_txns:tx -(reverse_MADE)-> Card:c;
+
+    email_domain = SELECT e
+                   FROM start:t -(PURCHASER_EMAIL)-> EmailDomain:e;
+    email_txns = SELECT tx
+                 FROM email_domain:e -(reverse_PURCHASER_EMAIL)-> Transaction:tx;
+    email_neighbor_cards = SELECT c
+                           FROM email_txns:tx -(reverse_MADE)-> Card:c;
+
+    PRINT start,
+          owner_cards,
+          tx_before,
+          tx_after,
+          device,
+          device_neighbors,
+          fraud_cases_on_device,
+          customer_prior_cases,
+          region_neighbor_cards,
+          email_neighbor_cards;
+}

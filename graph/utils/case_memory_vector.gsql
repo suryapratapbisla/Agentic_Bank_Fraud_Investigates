@@ -1,0 +1,13 @@
+// ============================================================
+// Add vector attribute to CaseMemory (1536-d, COSINE for OpenAI embeddings).
+// Job is created here; deploy.ps1 always runs add_case_memory_vector.
+// ============================================================
+
+USE GLOBAL
+
+CREATE GLOBAL SCHEMA_CHANGE JOB add_case_memory_vector {
+    ALTER VERTEX CaseMemory ADD VECTOR ATTRIBUTE summary_embedding(
+        DIMENSION=1536,
+        METRIC="COSINE"
+    );
+}

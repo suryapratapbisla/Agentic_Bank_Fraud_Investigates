@@ -1,0 +1,56 @@
+// ============================================================
+// Transaction and card-window lookups.
+// ============================================================
+
+USE GRAPH FraudInvestigationGraph
+
+CREATE OR REPLACE QUERY get_transaction(STRING transaction_id) FOR GRAPH FraudInvestigationGraph {
+    Vertex txn;
+    txn = to_vertex(transaction_id, "Transaction");
+    start = {txn};
+    cards = SELECT k FROM start:t -(reverse_MADE)-> Card:k;
+    devices = SELECT d FROM start:t -(FROM_DEVICE)-> DeviceProfile:d;
+    emails = SELECT e FROM start:t -(PURCHASER_EMAIL)-> EmailDomain:e;
+    regions = SELECT r FROM start:t -(BILLED_IN)-> BillingRegion:r;
+    PRINT start, cards, devices, emails, regions;
+}
+
+CREATE OR REPLACE QUERY get_card_transactions(STRING card_id) FOR GRAPH FraudInvestigationGraph {
+    Vertex card;
+    card = to_vertex(card_id, "Card");
+    cards = {card};
+    txns = SELECT t
+           FROM cards:k -(MADE)-> Transaction:t
+           ORDER BY t.ts ASC;
+    PRINT txns;
+}
+
+CREATE OR REPLACE QUERY get_card_window(
+    STRING card_id,
+    DATETIME start_ts,
+    DATETIME end_ts
+) FOR GRAPH FraudInvestigationGraph {
+    Vertex card;
+    card = to_vertex(card_id, "Card");
+    cards = {card};
+    txns = SELECT t
+           FROM cards:k -(MADE)-> Transaction:t
+           WHERE t.ts >= start_ts AND t.ts <= end_ts
+           ORDER BY t.ts ASC;
+    PRINT txns;
+}
+
+CREATE OR REPLACE QUERY get_flagged_context(STRING transaction_id) FOR GRAPH FraudInvestigationGraph {
+    Vertex txn;
+    txn = to_vertex(transaction_id, "Transaction");
+    start = {txn};
+
+    cards = SELECT k FROM start:t -(reverse_MADE)-> Card:k;
+    customers = SELECT c FROM cards:k -(reverse_OWNS)-> Customer:c;
+    next_txns = SELECT n FROM start:t -(NEXT)-> Transaction:n;
+    prev_txns = SELECT p FROM start:t -(reverse_NEXT)-> Transaction:p;
+    devices = SELECT d FROM start:t -(FROM_DEVICE)-> DeviceProfile:d;
+    regions = SELECT r FROM start:t -(BILLED_IN)-> BillingRegion:r;
+
+    PRINT start, cards, customers, prev_txns, next_txns, devices, regions;
+}

@@ -1,0 +1,40 @@
+// ============================================================
+// Entity: EmailDomain only. Does not load Transaction.
+//
+// Source:
+//   DATA/filtered_data/transactions_with_identity_filtered.csv
+//   column used: P_emaildomain (purchaser email domain)
+//
+// There is no separate domain id column. PRIMARY_ID is the domain.
+// PURCHASER_EMAIL is loaded here because Transaction already exists.
+// Rows with an empty domain are skipped.
+//
+// TODO: R_emaildomain is a real column and is already stored on
+//   Transaction.r_email_domain. The schema has no recipient-email
+//   edge, so it is not loaded as an EmailDomain here.
+//
+// Install:
+//   gsql loading/load_email_domains.gsql
+//
+// Run from graph/:
+//   RUN LOADING JOB load_email_domains USING f_txns="../DATA/filtered_data/transactions_with_identity_filtered.csv"
+//   SHOW LOADING STATUS ALL
+// ============================================================
+
+USE GRAPH FraudInvestigationGraph
+
+CREATE LOADING JOB load_email_domains FOR GRAPH FraudInvestigationGraph {
+    DEFINE FILENAME f_txns = "/tmp/agentic_deploy/DATA/filtered_data/transactions_with_identity_filtered.csv";
+
+    LOAD f_txns
+        TO VERTEX EmailDomain VALUES ($"P_emaildomain")
+        WHERE $"P_emaildomain" != ""
+        USING HEADER="true", SEPARATOR=",", QUOTE="double";
+
+    LOAD f_txns
+        TO EDGE PURCHASER_EMAIL VALUES ($"TransactionID", $"P_emaildomain")
+        WHERE $"P_emaildomain" != "" AND $"TransactionID" != ""
+        USING HEADER="true", SEPARATOR=",", QUOTE="double";
+}
+
+// RUN LOADING JOB load_email_domains USING f_txns="../DATA/filtered_data/transactions_with_identity_filtered.csv"

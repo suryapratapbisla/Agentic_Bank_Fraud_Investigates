@@ -1,0 +1,94 @@
+{
+  "case_id": "HHG-001",
+  "case": {
+    "status": "closed_fraud",
+    "verdict": "fraud",
+    "fraud_probability": 0.65,
+    "pattern": "out_of_region_use",
+    "pattern_description": "In-person purchase made in a billing region (444.0) never seen before for this card, matching prior out_of_region_use fraud pattern.",
+    "affected_txn_ids": [
+      "3514030"
+    ],
+    "first_suspicious_txn_id": "3514030",
+    "connected_card_ids": [],
+    "connected_device_profiles": [],
+    "exposure_usd": 77.07,
+    "evidence": [
+      {
+        "claim": "Transaction made in billing region 444.0 not seen before for this card, indicating out_of_region_use.",
+        "source": "graph",
+        "ref": "graph:card_transaction_history",
+        "entity_ids": [
+          "3514030"
+        ]
+      },
+      {
+        "claim": "Prior confirmed fraud cases on same card with out_of_region_use pattern.",
+        "source": "graph",
+        "ref": "graph:prior_closed_cases",
+        "entity_ids": [
+          "AGENT-HHG-001",
+          "CC-3587",
+          "CC-2964",
+          "CC-1673"
+        ]
+      },
+      {
+        "claim": "Risk score 0.61 supports suspicion.",
+        "source": "document",
+        "ref": "case:trigger_text",
+        "entity_ids": []
+      }
+    ],
+    "similar_prior_cases": [
+      "AGENT-HHG-001",
+      "CC-3587",
+      "CC-2964",
+      "CC-1673"
+    ],
+    "summary": "Multiple prior confirmed out_of_region_use fraud cases exist for card C12382-K1. The flagged $77.07 in-person purchase occurred in a new billing region (444.0) and the model assigned a moderate risk score. Combined with the history, the transaction is highly likely fraudulent.",
+    "written_to_graph": true,
+    "graph_case_id": "AGENT-HHG-001"
+  },
+  "evidence_requests": [
+    {
+      "type": "customer_validation",
+      "asked_after_step": 1,
+      "assumed_response": "Customer denies the $77.07 purchase and reports the card is missing."
+    }
+  ],
+  "next_best_actions": {
+    "initial": [
+      {
+        "action": "VERIFY_WITH_CUSTOMER",
+        "route": "auto",
+        "reason": "R1: fraud_probability < 0.70, only one signal, verify before block"
+      }
+    ],
+    "final": [
+      {
+        "action": "BLOCK_CARD",
+        "route": "L1",
+        "reason": "R2: customer denies transaction, block card and create case"
+      },
+      {
+        "action": "CREATE_CASE",
+        "route": "auto",
+        "reason": "R2: customer denies transaction, need case"
+      }
+    ],
+    "what_changed": "Customer denial changed verdict to fraud and triggered block and case creation."
+  },
+  "sar": {
+    "file": false,
+    "reason": "Exposure $77.07 below SAR filing threshold and pattern not undocumented.",
+    "narrative": "",
+    "subjects": [],
+    "total_amount_usd": 0.0,
+    "activity_dates": []
+  },
+  "stop_reason": "Customer denial resolved investigation.",
+  "tool_calls": 7,
+  "tokens": 6679,
+  "latency_s": 13.42
+}
